@@ -1,0 +1,1043 @@
+{
+  "songs": [
+    {
+      "internalName": "AllTheGoodGirlsGoToHell",
+      "songName": "all the good girls go to hell",
+      "songAuthorName": "Billie Eilish",
+      "beatsPerMinute": "92",
+      "songPack": "Billie Eilish"
+    },
+    {
+      "internalName": "BadGuy",
+      "songName": "bad guy",
+      "songAuthorName": "Billie Eilish",
+      "beatsPerMinute": "135",
+      "songPack": "Billie Eilish"
+    },
+    {
+      "internalName": "Bellyache",
+      "songName": "bellyache",
+      "songAuthorName": "Billie Eilish",
+      "beatsPerMinute": "100",
+      "songPack": "Billie Eilish"
+    },
+    {
+      "internalName": "BuryAFriend",
+      "songName": "bury a friend",
+      "songAuthorName": "Billie Eilish",
+      "beatsPerMinute": "120",
+      "songPack": "Billie Eilish"
+    },
+    {
+      "internalName": "HappierThanEver",
+      "songName": "Happier Than Ever",
+      "songAuthorName": "Billie Eilish",
+      "beatsPerMinute": "162",
+      "songPack": "Billie Eilish"
+    },
+    {
+      "internalName": "IDidntChangeMyNumber",
+      "songName": "I Didn't Change My Number",
+      "songAuthorName": "Billie Eilish",
+      "beatsPerMinute": "142",
+      "songPack": "Billie Eilish"
+    },
+    {
+      "internalName": "NDA",
+      "songName": "NDA",
+      "songAuthorName": "Billie Eilish",
+      "beatsPerMinute": "170",
+      "songPack": "Billie Eilish"
+    },
+    {
+      "internalName": "Oxytocin",
+      "songName": "Oxytocin",
+      "songAuthorName": "Billie Eilish",
+      "beatsPerMinute": "125",
+      "songPack": "Billie Eilish"
+    },
+    {
+      "internalName": "ThereforeIAm",
+      "songName": "Therefore I Am",
+      "songAuthorName": "Billie Eilish",
+      "beatsPerMinute": "94",
+      "songPack": "Billie Eilish"
+    },
+    {
+      "internalName": "YouShouldSeeMeInACrown",
+      "songName": "you should see me in a crown",
+      "songAuthorName": "Billie Eilish",
+      "beatsPerMinute": "150",
+      "songPack": "Billie Eilish"
+    },
+    {
+      "internalName": "BloodSweatAndTears",
+      "songName": "Blood Sweat & Tears",
+      "songAuthorName": "BTS",
+      "beatsPerMinute": "93",
+      "songPack": "BTS"
+    },
+    {
+      "internalName": "BoyWithLuv",
+      "songName": "Boy With Luv",
+      "songSubName": "feat. Halsey",
+      "songAuthorName": "BTS",
+      "beatsPerMinute": "120",
+      "songPack": "BTS"
+    },
+    {
+      "internalName": "BurningUp",
+      "songName": "Burning Up (FIRE)",
+      "songAuthorName": "BTS",
+      "beatsPerMinute": "200",
+      "songPack": "BTS"
+    },
+    {
+      "internalName": "Dionysus",
+      "songName": "Dionysus",
+      "songAuthorName": "BTS",
+      "beatsPerMinute": "175",
+      "songPack": "BTS"
+    },
+    {
+      "internalName": "Dna",
+      "songName": "DNA",
+      "songAuthorName": "BTS",
+      "beatsPerMinute": "130",
+      "songPack": "BTS"
+    },
+    {
+      "internalName": "Dope",
+      "songName": "DOPE",
+      "songAuthorName": "BTS",
+      "beatsPerMinute": "77",
+      "songPack": "BTS"
+    },
+    {
+      "internalName": "Dynamite",
+      "songName": "Dynamite",
+      "songAuthorName": "BTS",
+      "beatsPerMinute": "114",
+      "songPack": "BTS"
+    },
+    {
+      "internalName": "FakeLove",
+      "songName": "FAKE LOVE",
+      "songAuthorName": "BTS",
+      "beatsPerMinute": "155",
+      "songPack": "BTS"
+    },
+    {
+      "internalName": "Idol",
+      "songName": "IDOL",
+      "songAuthorName": "BTS",
+      "beatsPerMinute": "126",
+      "songPack": "BTS"
+    },
+    {
+      "internalName": "MicDrop",
+      "songName": "MIC Drop (Steve Aoki Remix)",
+      "songAuthorName": "BTS",
+      "beatsPerMinute": "170",
+      "songPack": "BTS"
+    },
+    {
+      "internalName": "NotToday",
+      "songName": "Not Today",
+      "songAuthorName": "BTS",
+      "beatsPerMinute": "110",
+      "songPack": "BTS"
+    },
+    {
+      "internalName": "Ugh",
+      "songName": "UGH!",
+      "songAuthorName": "BTS",
+      "beatsPerMinute": "165",
+      "songPack": "BTS"
+    },
+    {
+      "internalName": "Alone",
+      "songName": "Alone",
+      "songAuthorName": "Marshmello",
+      "beatsPerMinute": "142",
+      "songPack": "Electronic Mixtape"
+    },
+    {
+      "internalName": "Animals",
+      "songName": "Animals",
+      "songAuthorName": "Martin Garrix",
+      "beatsPerMinute": "128",
+      "songPack": "Electronic Mixtape"
+    },
+    {
+      "internalName": "Freestyler",
+      "songName": "Freestyler",
+      "songAuthorName": "Bomfunk MC",
+      "beatsPerMinute": "164",
+      "songPack": "Electronic Mixtape"
+    },
+    {
+      "internalName": "GhostsNStuff",
+      "songName": "Ghosts 'n' stuff",
+      "songSubName": "feat. Rob Swire",
+      "songAuthorName": "Deadmau5",
+      "beatsPerMinute": "128",
+      "songPack": "Electronic Mixtape"
+    },
+    {
+      "internalName": "Icarus",
+      "songName": "Icarus",
+      "songAuthorName": "Madeon",
+      "beatsPerMinute": "126",
+      "songPack": "Electronic Mixtape"
+    },
+    {
+      "internalName": "Sandstorm",
+      "songName": "Sandstorm",
+      "songAuthorName": "Darude",
+      "beatsPerMinute": "136",
+      "songPack": "Electronic Mixtape"
+    },
+    {
+      "internalName": "StayTheNight",
+      "songName": "Stay the Night",
+      "songSubName": "feat. Hayley Wiliams",
+      "songAuthorName": "Zedd",
+      "beatsPerMinute": "128",
+      "songPack": "Electronic Mixtape"
+    },
+    {
+      "internalName": "TheRockafellerSkank",
+      "songName": "The Rockafeller Skank",
+      "songAuthorName": "Fatboy Slim",
+      "beatsPerMinute": "152",
+      "songPack": "Electronic Mixtape"
+    },
+    {
+      "internalName": "WaitingAllNight",
+      "songName": "Waiting All Night",
+      "songSubName": "feat. Ella Eyre",
+      "songAuthorName": "Rudimental",
+      "beatsPerMinute": "175",
+      "songPack": "Electronic Mixtape"
+    },
+    {
+      "internalName": "Witchcraft",
+      "songName": "Witchcraft",
+      "songAuthorName": "Pendulum",
+      "beatsPerMinute": "174",
+      "songPack": "Electronic Mixtape"
+    },
+    {
+      "internalName": "Centuries",
+      "songName": "Centuries",
+      "songAuthorName": "Fall Out Boy",
+      "beatsPerMinute": "88",
+      "songPack": "Fall Out Boy"
+    },
+    {
+      "internalName": "DanceDance",
+      "songName": "Dance, Dance",
+      "songAuthorName": "Fall Out Boy",
+      "beatsPerMinute": "114",
+      "songPack": "Fall Out Boy"
+    },
+    {
+      "internalName": "IDontCare",
+      "songName": "I Don't Care",
+      "songAuthorName": "Fall Out Boy",
+      "beatsPerMinute": "67",
+      "songPack": "Fall Out Boy"
+    },
+    {
+      "internalName": "Immortals",
+      "songName": "Immortals",
+      "songAuthorName": "Fall Out Boy",
+      "beatsPerMinute": "108",
+      "songPack": "Fall Out Boy"
+    },
+    {
+      "internalName": "Irresistible",
+      "songName": "Irresitible",
+      "songAuthorName": "Fall Out Boy",
+      "beatsPerMinute": "82",
+      "songPack": "Fall Out Boy"
+    },
+    {
+      "internalName": "MySongsKnow",
+      "songName": "My Songs Know What You Did in the Dark (Light Em Up)",
+      "songAuthorName": "Fall Out Boy",
+      "beatsPerMinute": "76",
+      "songPack": "Fall Out Boy"
+    },
+    {
+      "internalName": "ThisAintAScene",
+      "songName": "This Ain't a Scene, It's an Arms Race",
+      "songAuthorName": "Fall Out Boy",
+      "beatsPerMinute": "100",
+      "songPack": "Fall Out Boy"
+    },
+    {
+      "internalName": "ThnksFrThMmrs",
+      "songName": "Thnks fr th Mmrs",
+      "songAuthorName": "Fall Out Boy",
+      "beatsPerMinute": "156",
+      "songPack": "Fall Out Boy"
+    },
+    {
+      "internalName": "AmericanIdiot",
+      "songName": "American Idiot",
+      "songAuthorName": "Green Day",
+      "beatsPerMinute": "93",
+      "songPack": "Green Day"
+    },
+    {
+      "internalName": "BoulevardOfBrokenDreams",
+      "songName": "Boulevard of Broken Dreams",
+      "songAuthorName": "Green Day",
+      "beatsPerMinute": "83",
+      "songPack": "Green Day"
+    },
+    {
+      "internalName": "FatherOfAll",
+      "songName": "Father of All...",
+      "songAuthorName": "Green Day",
+      "beatsPerMinute": "164",
+      "songPack": "Green Day"
+    },
+    {
+      "internalName": "FireReadyAim",
+      "songName": "Fire, Ready, Aim",
+      "songAuthorName": "Green Day",
+      "beatsPerMinute": "78",
+      "songPack": "Green Day"
+    },
+    {
+      "internalName": "Holiday",
+      "songName": "Holiday",
+      "songAuthorName": "Green Day",
+      "beatsPerMinute": "74",
+      "songPack": "Green Day"
+    },
+    {
+      "internalName": "Minority",
+      "songName": "Minority",
+      "songAuthorName": "Green Day",
+      "beatsPerMinute": "138",
+      "songPack": "Green Day"
+    },
+    {
+      "internalName": "BadLiar",
+      "songName": "Bad Liar",
+      "songAuthorName": "Imagine Dragons",
+      "beatsPerMinute": "89",
+      "songPack": "Imagine Dragons"
+    },
+    {
+      "internalName": "Believer",
+      "songName": "Believer",
+      "songAuthorName": "Imagine Dragons",
+      "beatsPerMinute": "125",
+      "songPack": "Imagine Dragons"
+    },
+    {
+      "internalName": "Bones",
+      "songName": "Bones",
+      "songAuthorName": "Imagine Dragons",
+      "beatsPerMinute": "114",
+      "songPack": "Imagine Dragons"
+    },
+    {
+      "internalName": "Digital",
+      "songName": "Digital",
+      "songAuthorName": "Imagine Dragons",
+      "beatsPerMinute": "167",
+      "songPack": "Imagine Dragons"
+    },
+    {
+      "internalName": "Enemy",
+      "songName": "Enemy",
+      "songAuthorName": "Imagine Dragons",
+      "beatsPerMinute": "77",
+      "songPack": "Imagine Dragons"
+    },
+    {
+      "internalName": "ItsTime",
+      "songName": "It's Time",
+      "songAuthorName": "Imagine Dragons",
+      "beatsPerMinute": "105",
+      "songPack": "Imagine Dragons",
+      "nameOverride": "RadioactiveAndItsTime"
+    },
+    {
+      "internalName": "Machine",
+      "songName": "Machine",
+      "songAuthorName": "Imagine Dragons",
+      "beatsPerMinute": "81",
+      "songPack": "Imagine Dragons"
+    },
+    {
+      "internalName": "Natural",
+      "songName": "Natural",
+      "songAuthorName": "Imagine Dragons",
+      "beatsPerMinute": "100",
+      "songPack": "Imagine Dragons"
+    },
+    {
+      "internalName": "Radioactive",
+      "songName": "Radioactive",
+      "songAuthorName": "Imagine Dragons",
+      "beatsPerMinute": "136.6",
+      "songPack": "Imagine Dragons",
+      "nameOverride": "RadioactiveAndItsTime"
+    },
+    {
+      "internalName": "Thunder",
+      "songName": "Thunder",
+      "songAuthorName": "Imagine Dragons",
+      "beatsPerMinute": "168",
+      "songPack": "Imagine Dragons"
+    },
+    {
+      "internalName": "Warriors",
+      "songName": "Warriors",
+      "songAuthorName": "Imagine Dragons",
+      "beatsPerMinute": "156",
+      "songPack": "Imagine Dragons"
+    },
+    {
+      "internalName": "WhateverItTakes",
+      "songName": "Whatever It Takes",
+      "songAuthorName": "Imagine Dragons",
+      "beatsPerMinute": "135",
+      "songPack": "Imagine Dragons"
+    },
+    {
+      "internalName": "CountingStars",
+      "songName": "Counting Stars",
+      "songAuthorName": "OneRepublic",
+      "beatsPerMinute": "122",
+      "songPack": "Interscope Mixtape"
+    },
+    {
+      "internalName": "DnaLamar",
+      "songName": "DNA.",
+      "songAuthorName": "Kendrick Lamar",
+      "beatsPerMinute": "140",
+      "songPack": "Interscope Mixtape"
+    },
+    {
+      "internalName": "DontCha",
+      "songName": "Don't Cha",
+      "songAuthorName": "The Pussycat Dolls",
+      "beatsPerMinute": "120",
+      "songPack": "Interscope Mixtape"
+    },
+    {
+      "internalName": "PartyRockAnthem",
+      "songName": "Party Rock Anthem",
+      "songAuthorName": "LMFAO, Lauren Bennett, GoonRock",
+      "beatsPerMinute": "130",
+      "songPack": "Interscope Mixtape"
+    },
+    {
+      "internalName": "Rollin",
+      "songName": "Rollin' (Air Raid Vehicle)",
+      "songAuthorName": "Limp Bizkit",
+      "beatsPerMinute": "98",
+      "songPack": "Interscope Mixtape"
+    },
+    {
+      "internalName": "Sugar",
+      "songName": "Sugar",
+      "songAuthorName": "Maroon 5",
+      "beatsPerMinute": "120",
+      "songPack": "Interscope Mixtape"
+    },
+    {
+      "internalName": "TheSweetEscape",
+      "songName": "The Sweet Escape",
+      "songSubName": "feat. Akon",
+      "songAuthorName": "Gwen Stefani",
+      "beatsPerMinute": "120",
+      "songPack": "Interscope Mixtape"
+    },
+    {
+      "internalName": "Alejandro",
+      "songName": "Alejandro",
+      "songAuthorName": "Lady Gaga",
+      "beatsPerMinute": "99",
+      "songPack": "Lady Gaga"
+    },
+    {
+      "internalName": "BadRomance",
+      "songName": "Bad Romance",
+      "songAuthorName": "Lady Gaga",
+      "beatsPerMinute": "119",
+      "songPack": "Lady Gaga"
+    },
+    {
+      "internalName": "BornThisWay",
+      "songName": "Born This Way",
+      "songAuthorName": "Lady Gaga",
+      "beatsPerMinute": "124",
+      "songPack": "Lady Gaga"
+    },
+    {
+      "internalName": "JustDance",
+      "songName": "Just Dance",
+      "songSubName": "feat. Colby O'Donis",
+      "songAuthorName": "Lady Gaga",
+      "beatsPerMinute": "119",
+      "songPack": "Lady Gaga"
+    },
+    {
+      "internalName": "Paparazzi",
+      "songName": "Paparazzi",
+      "songAuthorName": "Lady Gaga",
+      "beatsPerMinute": "115",
+      "songPack": "Lady Gaga"
+    },
+    {
+      "internalName": "PokerFace",
+      "songName": "Poker Face",
+      "songAuthorName": "Lady Gaga",
+      "beatsPerMinute": "119",
+      "songPack": "Lady Gaga"
+    },
+    {
+      "internalName": "RainOnMe",
+      "songName": "Rain On Me",
+      "songSubName": "with Ariana Grande",
+      "songAuthorName": "Lady Gaga",
+      "beatsPerMinute": "123",
+      "songPack": "Lady Gaga"
+    },
+    {
+      "internalName": "StupidLove",
+      "songName": "Stupid Love",
+      "songAuthorName": "Lady Gaga",
+      "beatsPerMinute": "118",
+      "songPack": "Lady Gaga"
+    },
+    {
+      "internalName": "Telephone",
+      "songName": "Telephone",
+      "songSubName": "feat. Beyoncé",
+      "songAuthorName": "Lady Gaga",
+      "beatsPerMinute": "122",
+      "songPack": "Lady Gaga"
+    },
+    {
+      "internalName": "TheEdgeOfGlory",
+      "songName": "The Edge Of Glory",
+      "songAuthorName": "Lady Gaga",
+      "beatsPerMinute": "128",
+      "songPack": "Lady Gaga"
+    },
+    {
+      "internalName": "BleedItOut",
+      "songName": "Bleed It Out",
+      "songAuthorName": "Linkin Park",
+      "beatsPerMinute": "140",
+      "songPack": "Linkin Park"
+    },
+    {
+      "internalName": "BreakingTheHabit",
+      "songName": "Breaking the Habit",
+      "songAuthorName": "Linkin Park",
+      "beatsPerMinute": "100",
+      "songPack": "Linkin Park"
+    },
+    {
+      "internalName": "Faint",
+      "songName": "Faint",
+      "songAuthorName": "Linkin Park",
+      "beatsPerMinute": "135",
+      "songPack": "Linkin Park"
+    },
+    {
+      "internalName": "GivenUp",
+      "songName": "Given Up",
+      "songAuthorName": "Linkin Park",
+      "beatsPerMinute": "100",
+      "songPack": "Linkin Park"
+    },
+    {
+      "internalName": "InTheEnd",
+      "songName": "In the End",
+      "songAuthorName": "Linkin Park",
+      "beatsPerMinute": "105",
+      "songPack": "Linkin Park"
+    },
+    {
+      "internalName": "NewDivide",
+      "songName": "New Divide",
+      "songAuthorName": "Linkin Park",
+      "beatsPerMinute": "118",
+      "songPack": "Linkin Park"
+    },
+    {
+      "internalName": "Numb",
+      "songName": "Numb",
+      "songAuthorName": "Linkin Park",
+      "beatsPerMinute": "110",
+      "songPack": "Linkin Park"
+    },
+    {
+      "internalName": "OneStepCloser",
+      "songName": "One Step Closer",
+      "songAuthorName": "Linkin Park",
+      "beatsPerMinute": "95",
+      "songPack": "Linkin Park"
+    },
+    {
+      "internalName": "Papercut",
+      "songName": "Papercut",
+      "songAuthorName": "Linkin Park",
+      "beatsPerMinute": "150",
+      "songPack": "Linkin Park"
+    },
+    {
+      "internalName": "SomewhereIBelong",
+      "songName": "Somewhere I Belong",
+      "songAuthorName": "Linkin Park",
+      "beatsPerMinute": "162",
+      "songPack": "Linkin Park"
+    },
+    {
+      "internalName": "WhatIveDone",
+      "songName": "What I've Done",
+      "songAuthorName": "Linkin Park",
+      "beatsPerMinute": "120",
+      "songPack": "Linkin Park"
+    },
+    {
+      "internalName": "2BeLoved",
+      "songName": "2 Be Loved (Am I Ready)",
+      "songAuthorName": "Lizzo",
+      "beatsPerMinute": "156",
+      "songPack": "Lizzo"
+    },
+    {
+      "internalName": "AboutDamnTime",
+      "songName": "About Damn Time",
+      "songAuthorName": "Lizzo",
+      "beatsPerMinute": "109",
+      "songPack": "Lizzo"
+    },
+    {
+      "internalName": "CuzILoveYou",
+      "songName": "Cuz I Love You",
+      "songAuthorName": "Lizzo",
+      "beatsPerMinute": "162",
+      "songPack": "Lizzo"
+    },
+    {
+      "internalName": "EverybodysGay",
+      "songName": "Everybody's Gay",
+      "songAuthorName": "Lizzo",
+      "beatsPerMinute": "124",
+      "songPack": "Lizzo"
+    },
+    {
+      "internalName": "GoodAsHell",
+      "songName": "Good as Hell",
+      "songAuthorName": "Lizzo",
+      "beatsPerMinute": "96",
+      "songPack": "Lizzo"
+    },
+    {
+      "internalName": "Juice",
+      "songName": "Juice",
+      "songAuthorName": "Lizzo",
+      "beatsPerMinute": "120",
+      "songPack": "Lizzo"
+    },
+    {
+      "internalName": "Tempo",
+      "songName": "Tempo",
+      "songSubName": "feat. Missy Elliott",
+      "songAuthorName": "Lizzo",
+      "beatsPerMinute": "107",
+      "songPack": "Lizzo"
+    },
+    {
+      "internalName": "TruthHurts",
+      "songName": "Truth Hurts",
+      "songAuthorName": "Lizzo",
+      "beatsPerMinute": "158",
+      "songPack": "Lizzo"
+    },
+    {
+      "internalName": "Worship",
+      "songName": "Worship",
+      "songAuthorName": "Lizzo",
+      "beatsPerMinute": "125",
+      "songPack": "Lizzo"
+    },
+    {
+      "internalName": "Boundless",
+      "songName": "Boundless",
+      "songAuthorName": "Aero Chord",
+      "beatsPerMinute": "170",
+      "songPack": "Monstercat Vol. 1"
+    },
+    {
+      "internalName": "WeWontBeAlone",
+      "songName": "We Won't Be Alone",
+      "songSubName": "feat. Laura Brehm",
+      "songAuthorName": "Feint",
+      "beatsPerMinute": "175",
+      "songPack": "Monstercat Vol. 1"
+    },
+    {
+      "internalName": "EmojiVIP",
+      "songName": "Emoji VIP",
+      "songAuthorName": "Pegboard Nerds",
+      "beatsPerMinute": "163",
+      "songPack": "Monstercat Vol. 1"
+    },
+    {
+      "internalName": "Epic",
+      "songName": "EPIC",
+      "songAuthorName": "Tokyo Machine",
+      "beatsPerMinute": "128",
+      "songPack": "Monstercat Vol. 1"
+    },
+    {
+      "internalName": "FeelingStronger",
+      "songName": "Feeling Stronger",
+      "songAuthorName": "Muzz, Charlotte Colley",
+      "beatsPerMinute": "175",
+      "songPack": "Monstercat Vol. 1"
+    },
+    {
+      "internalName": "Overkill",
+      "songName": "Overkill",
+      "songAuthorName": "RIOT",
+      "beatsPerMinute": "174",
+      "songPack": "Monstercat Vol. 1"
+    },
+    {
+      "internalName": "Rattlesnake",
+      "songName": "Rattlesnake",
+      "songAuthorName": "Rogue",
+      "beatsPerMinute": "175",
+      "songPack": "Monstercat Vol. 1"
+    },
+    {
+      "internalName": "Stronger",
+      "songName": "Stronger",
+      "songSubName": "feat. Emel",
+      "songAuthorName": "Stonebank",
+      "beatsPerMinute": "170",
+      "songPack": "Monstercat Vol. 1"
+    },
+    {
+      "internalName": "ThisTime",
+      "songName": "This Time",
+      "songAuthorName": "Kayzo",
+      "beatsPerMinute": "150",
+      "songPack": "Monstercat Vol. 1"
+    },
+    {
+      "internalName": "TillItsOver",
+      "songName": "Till It's Over",
+      "songAuthorName": "Tristam",
+      "beatsPerMinute": "110",
+      "songPack": "Monstercat Vol. 1"
+    },
+    {
+      "internalName": "Glide",
+      "songName": "Glide",
+      "songAuthorName": "Stephen Walking",
+      "beatsPerMinute": "134",
+      "songPack": "Monstercat X Rocket League"
+    },
+    {
+      "internalName": "LuvUNeedU",
+      "songName": "LUV U NEED U",
+      "songAuthorName": "Slushii",
+      "beatsPerMinute": "147",
+      "songPack": "Monstercat X Rocket League"
+    },
+    {
+      "internalName": "Play",
+      "songName": "PLAY",
+      "songAuthorName": "Tokyo Machine",
+      "beatsPerMinute": "128",
+      "songPack": "Monstercat X Rocket League"
+    },
+    {
+      "internalName": "RockIt",
+      "songName": "ROCK IT",
+      "songAuthorName": "Tokyo Machine",
+      "beatsPerMinute": "128",
+      "songPack": "Monstercat X Rocket League"
+    },
+    {
+      "internalName": "Shiawase",
+      "songName": "Shiawase",
+      "songAuthorName": "Dion Timmer",
+      "beatsPerMinute": "150",
+      "songPack": "Monstercat X Rocket League"
+    },
+    {
+      "internalName": "TestMe",
+      "songName": "Test Me",
+      "songAuthorName": "Slushii, Dion Timmer",
+      "beatsPerMinute": "150",
+      "songPack": "Monstercat X Rocket League"
+    },
+    {
+      "internalName": "EmperorsNewClothes",
+      "songName": "Emperor's New Clothes",
+      "songAuthorName": "Panic! at the Disco",
+      "beatsPerMinute": "95",
+      "songPack": "Panic! at the Disco"
+    },
+    {
+      "internalName": "HighHopes",
+      "songName": "High Hopes",
+      "songAuthorName": "Panic! at the Disco",
+      "beatsPerMinute": "82",
+      "songPack": "Panic! at the Disco"
+    },
+    {
+      "internalName": "TheGreatestShow",
+      "songName": "The Greatest Show",
+      "songAuthorName": "Panic! at the Disco",
+      "beatsPerMinute": "77",
+      "songPack": "Panic! at the Disco"
+    },
+    {
+      "internalName": "Victorious",
+      "songName": "Victorious",
+      "songAuthorName": "Panic! at the Disco",
+      "beatsPerMinute": "110",
+      "songPack": "Panic! at the Disco"
+    },
+    {
+      "internalName": "Bangarang",
+      "songName": "Bangarang",
+      "songSubName": "feat. Sirah",
+      "songAuthorName": "Skrillex",
+      "beatsPerMinute": "110",
+      "songPack": "Skrillex"
+    },
+    {
+      "internalName": "Butterflies",
+      "songName": "Butterflies",
+      "songAuthorName": "Skrillex, Starrah, Four Tet",
+      "beatsPerMinute": "128",
+      "songPack": "Skrillex"
+    },
+    {
+      "internalName": "DontGo",
+      "songName": "Don't Go",
+      "songAuthorName": "Skrillex, Justin Bieber, Don Toliver",
+      "beatsPerMinute": "150",
+      "songPack": "Skrillex"
+    },
+    {
+      "internalName": "FirstOfTheYear",
+      "songName": "First of the Year (Equinox)",
+      "songAuthorName": "Skrillex",
+      "beatsPerMinute": "145",
+      "songPack": "Skrillex"
+    },
+    {
+      "internalName": "RaggaBomb",
+      "songName": "Ragga Bomb",
+      "songAuthorName": "Skrillex, Ragga Twins",
+      "beatsPerMinute": "174",
+      "songPack": "Skrillex"
+    },
+    {
+      "internalName": "RockNRoll",
+      "songName": "Rock 'n' Roll (Will Take You to the Mountain)",
+      "songAuthorName": "Skrillex",
+      "beatsPerMinute": "128",
+      "songPack": "Skrillex"
+    },
+    {
+      "internalName": "ScaryMonstersAndNiceSprites",
+      "songName": "Scary Monsters and Nice Sprites",
+      "songAuthorName": "Skrillex",
+      "beatsPerMinute": "140",
+      "songPack": "Skrillex"
+    },
+    {
+      "internalName": "TheDevilsDen",
+      "songName": "The Devil's Den",
+      "songAuthorName": "Skrillex, Wolfgang Gartner",
+      "beatsPerMinute": "128",
+      "songPack": "Skrillex"
+    },
+    {
+      "internalName": "DumbThingz",
+      "songName": "Dumb Thingz",
+      "songAuthorName": "Kaydence, Timbaland",
+      "beatsPerMinute": "100",
+      "songPack": "Timbaland"
+    },
+    {
+      "internalName": "Famous",
+      "songName": "Famous",
+      "songAuthorName": "Bruno Martini, Timbaland, Jake Davis",
+      "beatsPerMinute": "119",
+      "songPack": "Timbaland"
+    },
+    {
+      "internalName": "HasAMeaning",
+      "songName": "Has a Meaning",
+      "songAuthorName": "sid tipton, Timbaland",
+      "beatsPerMinute": "121",
+      "songPack": "Timbaland"
+    },
+    {
+      "internalName": "WhatILike",
+      "songName": "What I Like",
+      "songAuthorName": "Karra, Nash Overstreet, Common Strangers",
+      "beatsPerMinute": "98",
+      "songPack": "Timbaland"
+    },
+    {
+      "internalName": "WhileWereYoung",
+      "songName": "While We're Young",
+      "songAuthorName": "Wavezswavesz",
+      "beatsPerMinute": "113",
+      "songPack": "Timbaland"
+    },
+    {
+      "internalName": "BlindingLights",
+      "songName": "Blinding Lights",
+      "songAuthorName": "The Weeknd",
+      "beatsPerMinute": "171",
+      "songPack": "The Weeknd"
+    },
+    {
+      "internalName": "CantFeelMyFace",
+      "songName": "Can't Feel My Face",
+      "songAuthorName": "The Weeknd",
+      "beatsPerMinute": "108",
+      "songPack": "The Weeknd"
+    },
+    {
+      "internalName": "HowDoIMakeYouLoveMe",
+      "songName": "How Do I Make You Love Me?",
+      "songAuthorName": "The Weeknd",
+      "beatsPerMinute": "121",
+      "songPack": "The Weeknd"
+    },
+    {
+      "internalName": "IFeelItComing",
+      "songName": "I Feel it Coming",
+      "songSubName": "feat. Daft Punk",
+      "songAuthorName": "The Weeknd",
+      "beatsPerMinute": "93",
+      "songPack": "The Weeknd"
+    },
+    {
+      "internalName": "PrayForMe",
+      "songName": "Pray For Me",
+      "songSubName": "feat. Kendrick Lamar",
+      "songAuthorName": "The Weeknd",
+      "beatsPerMinute": "101",
+      "songPack": "The Weeknd"
+    },
+    {
+      "internalName": "Sacrifice",
+      "songName": "Sacrifice",
+      "songAuthorName": "The Weeknd",
+      "beatsPerMinute": "122",
+      "songPack": "The Weeknd"
+    },
+    {
+      "internalName": "SaveYourTears",
+      "songName": "Save Your Tears",
+      "songAuthorName": "The Weeknd",
+      "beatsPerMinute": "118",
+      "songPack": "The Weeknd"
+    },
+    {
+      "internalName": "Starboy",
+      "songName": "Starboy",
+      "songSubName": "feat. Daft Punk",
+      "songAuthorName": "The Weeknd",
+      "beatsPerMinute": "186",
+      "songPack": "The Weeknd"
+    },
+    {
+      "internalName": "TakeMyBreath",
+      "songName": "Take My Breath",
+      "songAuthorName": "The Weeknd",
+      "beatsPerMinute": "121",
+      "songPack": "The Weeknd"
+    },
+    {
+      "internalName": "TheHills",
+      "songName": "The Hills",
+      "songAuthorName": "The Weeknd",
+      "beatsPerMinute": "113",
+      "songPack": "The Weeknd"
+    },
+    {
+      "internalName": "BornToBeWild",
+      "songName": "Born To Be Wild",
+      "songAuthorName": "Steppenwolf",
+      "beatsPerMinute": "143",
+      "songPack": "Rock Mixtape"
+    },
+    {
+      "internalName": "EyeOfTheTiger",
+      "songName": "Eye of the Tiger",
+      "songAuthorName": "Survivor",
+      "beatsPerMinute": "27.46",
+      "songPack": "Rock Mixtape"
+    },
+    {
+      "internalName": "FreeBird",
+      "songName": "Free Bird",
+      "songAuthorName": "Lynyrd Skynyrd",
+      "beatsPerMinute": "110.29",
+      "songPack": "Rock Mixtape"
+    },
+    {
+      "internalName": "IWasMadeLovingYou",
+      "songName": "I Was Made for Lovin You",
+      "songAuthorName": "KISS",
+      "beatsPerMinute": "127.55",
+      "songPack": "Rock Mixtape"
+    },
+    {
+      "internalName": "SevenNationArmy",
+      "songName": "Seven Nation Army",
+      "songAuthorName": "The White Stripes",
+      "beatsPerMinute": "122.2",
+      "songPack": "Rock Mixtape"
+    },
+    {
+      "internalName": "SmellsLikeTeenSpirit",
+      "songName": "Smells Like Teen Spirit",
+      "songAuthorName": "Nirvana",
+      "beatsPerMinute": "109.7",
+      "songPack": "Rock Mixtape"
+    },
+    {
+      "internalName": "SweetChildOMine",
+      "songName": "Sweet Child O' Mine",
+      "songAuthorName": "Guns N' Roses",
+      "beatsPerMinute": "127.99",
+      "songPack": "Rock Mixtape"
+    },
+    {
+      "internalName": "ThePretender",
+      "songName": "The Pretender",
+      "songAuthorName": "Foo Fighters",
+      "beatsPerMinute": "21.13",
+      "songPack": "Rock Mixtape"
+    }
+  ]
+}
