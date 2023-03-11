@@ -3,7 +3,7 @@ using System.Text;
 using System.Windows.Forms;
 using AssetStudio;
 
-namespace AssetStudioGUI
+namespace BSDlcConverter
 {
     internal class TypeTreeItem : ListViewItem
     {

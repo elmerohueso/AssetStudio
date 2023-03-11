@@ -2,7 +2,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace AssetStudioGUI
+namespace BSDlcConverter
 {
     public partial class ExportOptions : Form
     {

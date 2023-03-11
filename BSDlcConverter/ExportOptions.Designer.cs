@@ -1,4 +1,4 @@
-﻿namespace AssetStudioGUI
+﻿namespace BSDlcConverter
 {
     partial class ExportOptions
     {

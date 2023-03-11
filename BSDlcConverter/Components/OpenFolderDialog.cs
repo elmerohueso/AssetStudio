@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-namespace AssetStudioGUI
+namespace BSDlcConverter
 {
     internal class OpenFolderDialog
     {

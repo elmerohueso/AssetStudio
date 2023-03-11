@@ -1,11 +1,14 @@
 ﻿using AssetStudio;
+using Fmod5Sharp.FmodTypes;
+using Fmod5Sharp;
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace AssetStudioGUI
+namespace BSDlcConverter
 {
     internal static class Exporter
     {
@@ -38,7 +41,7 @@ namespace AssetStudioGUI
             }
         }
 
-        public static bool ExportAudioClip(AssetItem item, string exportPath)
+        /*public static bool ExportAudioClip(AssetItem item, string exportPath)
         {
             var m_AudioClip = (AudioClip)item.Asset;
             var m_AudioData = m_AudioClip.m_AudioData.GetData();
@@ -57,6 +60,37 @@ namespace AssetStudioGUI
             else
             {
                 if (!TryExportFile(exportPath, item, converter.GetExtensionName(), out var exportFullPath))
+                    return false;
+                File.WriteAllBytes(exportFullPath, m_AudioData);
+            }
+            return true;
+        }*/
+        public static bool ExportAudioClip(AssetItem item, string exportPath, bool convert)
+        {
+            var m_AudioClip = (AudioClip)item.Asset;
+            var m_AudioData = m_AudioClip.m_AudioData.GetData();
+            if (m_AudioData == null || m_AudioData.Length == 0)
+                return false;
+            if (convert)
+            {
+                string tempPath = Path.Combine(exportPath, "_temp");
+                if (!TryExportFile(exportPath, item, ".ogg", out var exportFullPath))
+                    return false;
+                //Console.WriteLine($"Reading sound bank");
+                FmodSoundBank bank = FsbLoader.LoadFsbFromByteArray(m_AudioData);
+                List<FmodSample> samples = bank.Samples;
+                var success = samples[0].RebuildAsStandardFileFormat(out var dataBytes, out var fileExtension);
+                if (success)
+                {
+                    //Console.WriteLine($"Converting audio to \"{exportFullPath}\"");
+                    File.WriteAllBytes(exportFullPath, dataBytes);
+                }
+                else
+                    Console.WriteLine("Audio conversion failed!");
+            }
+            else
+            {
+                if (!TryExportFile(exportPath, item, ".fsb", out var exportFullPath))
                     return false;
                 File.WriteAllBytes(exportFullPath, m_AudioData);
             }
@@ -230,8 +264,8 @@ namespace AssetStudioGUI
 
         public static bool ExportSprite(AssetItem item, string exportPath)
         {
-            var type = Properties.Settings.Default.convertType;
-            if (!TryExportFile(exportPath, item, "." + type.ToString().ToLower(), out var exportFullPath))
+            var type = ImageFormat.Jpeg;
+            if (!TryExportFile(exportPath, item, ".jpg", out var exportFullPath))
                 return false;
             var image = ((Sprite)item.Asset).GetImage();
             if (image != null)
@@ -350,7 +384,7 @@ namespace AssetStudioGUI
                 case ClassIDType.Texture2D:
                     return ExportTexture2D(item, exportPath);
                 case ClassIDType.AudioClip:
-                    return ExportAudioClip(item, exportPath);
+                    return ExportAudioClip(item, exportPath, true);
                 case ClassIDType.Shader:
                     return ExportShader(item, exportPath);
                 case ClassIDType.TextAsset:

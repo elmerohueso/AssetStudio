@@ -1,9 +1,9 @@
 ﻿using System.Windows.Forms;
 using AssetStudio;
 
-namespace AssetStudioGUI
+namespace BSDlcConverter
 {
-    internal class GameObjectTreeNode : TreeNode
+    public class GameObjectTreeNode : TreeNode
     {
         public GameObject gameObject;
 

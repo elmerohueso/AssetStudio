@@ -16,7 +16,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Forms;
-using static AssetStudioGUI.Studio;
+using static BSDlcConverter.Studio;
 using Font = AssetStudio.Font;
 #if NET472
 using Vector3 = OpenTK.Vector3;
@@ -27,9 +27,9 @@ using Vector4 = OpenTK.Mathematics.Vector4;
 using Matrix4 = OpenTK.Mathematics.Matrix4;
 #endif
 
-namespace AssetStudioGUI
+namespace BSDlcConverter
 {
-    partial class AssetStudioGUIForm : Form
+    partial class BSDlcConverterForm : Form
     {
         private AssetItem lastSelectedItem;
         private DirectBitmap imageTexture;
@@ -93,11 +93,11 @@ namespace AssetStudioGUI
         [DllImport("gdi32.dll")]
         private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont, IntPtr pdv, [In] ref uint pcFonts);
 
-        public AssetStudioGUIForm()
+        public BSDlcConverterForm()
         {
             Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
             InitializeComponent();
-            Text = $"AssetStudioGUI v{Application.ProductVersion}";
+            Text = $"BSDlcConverter v{Application.ProductVersion}";
             delayTimer = new System.Timers.Timer(800);
             delayTimer.Elapsed += new ElapsedEventHandler(delayTimer_Elapsed);
             displayAll.Checked = Properties.Settings.Default.displayAll;
@@ -111,7 +111,7 @@ namespace AssetStudioGUI
             Studio.StatusStripUpdate = StatusStripUpdate;
         }
 
-        private void AssetStudioGUIForm_DragEnter(object sender, DragEventArgs e)
+        private void BSDlcConverterForm_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
             {
@@ -119,7 +119,7 @@ namespace AssetStudioGUI
             }
         }
 
-        private async void AssetStudioGUIForm_DragDrop(object sender, DragEventArgs e)
+        private async void BSDlcConverterForm_DragDrop(object sender, DragEventArgs e)
         {
             var paths = (string[])e.Data.GetData(DataFormats.FileDrop);
             if (paths.Length > 0)
@@ -211,11 +211,11 @@ namespace AssetStudioGUI
 
             if (!string.IsNullOrEmpty(productName))
             {
-                Text = $"AssetStudioGUI v{Application.ProductVersion} - {productName} - {assetsManager.assetsFileList[0].unityVersion} - {assetsManager.assetsFileList[0].m_TargetPlatform}";
+                Text = $"BSDlcConverter v{Application.ProductVersion} - {productName} - {assetsManager.assetsFileList[0].unityVersion} - {assetsManager.assetsFileList[0].m_TargetPlatform}";
             }
             else
             {
-                Text = $"AssetStudioGUI v{Application.ProductVersion} - no productName - {assetsManager.assetsFileList[0].unityVersion} - {assetsManager.assetsFileList[0].m_TargetPlatform}";
+                Text = $"BSDlcConverter v{Application.ProductVersion} - no productName - {assetsManager.assetsFileList[0].unityVersion} - {assetsManager.assetsFileList[0].m_TargetPlatform}";
             }
 
             assetListView.VirtualListSize = visibleAssets.Count;
@@ -1217,7 +1217,7 @@ namespace AssetStudioGUI
 
         private void ResetForm()
         {
-            Text = $"AssetStudioGUI v{Application.ProductVersion}";
+            Text = $"BSDlcConverter v{Application.ProductVersion}";
             assetsManager.Clear();
             assemblyLoader.Clear();
             exportableAssets.Clear();

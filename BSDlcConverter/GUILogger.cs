@@ -2,7 +2,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace AssetStudioGUI
+namespace BSDlcConverter
 {
     class GUILogger : ILogger
     {

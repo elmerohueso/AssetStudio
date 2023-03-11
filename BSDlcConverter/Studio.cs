@@ -8,10 +8,10 @@ using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
 using System.Xml.Linq;
-using static AssetStudioGUI.Exporter;
+using static BSDlcConverter.Exporter;
 using Object = AssetStudio.Object;
 
-namespace AssetStudioGUI
+namespace BSDlcConverter
 {
     internal enum ExportType
     {

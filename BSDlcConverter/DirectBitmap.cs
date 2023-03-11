@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
 
-namespace AssetStudioGUI
+namespace BSDlcConverter
 {
     public sealed class DirectBitmap : IDisposable
     {

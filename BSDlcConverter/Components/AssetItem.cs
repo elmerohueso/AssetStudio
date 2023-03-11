@@ -1,9 +1,9 @@
 ﻿using System.Windows.Forms;
 using AssetStudio;
 
-namespace AssetStudioGUI
+namespace BSDlcConverter
 {
-    internal class AssetItem : ListViewItem
+    public class AssetItem : ListViewItem
     {
         public Object Asset;
         public SerializedFile SourceFile;
