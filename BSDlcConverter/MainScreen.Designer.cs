@@ -93,7 +93,6 @@
             this.outputFolderBox.Name = "outputFolderBox";
             this.outputFolderBox.Size = new System.Drawing.Size(200, 20);
             this.outputFolderBox.TabIndex = 29;
-            this.outputFolderBox.Text = "D:\\Users\\Brendan\\Downloads\\Beat Saber\\export test";
             // 
             // label3
             // 
