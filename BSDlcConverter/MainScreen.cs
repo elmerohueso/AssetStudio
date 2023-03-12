@@ -220,7 +220,7 @@ namespace BSDlcConverter
         {
             string songTempFolder = Path.Combine(tempPath, song.internalName);
             Directory.CreateDirectory(songTempFolder);
-            moveCover(song, songTempFolder);
+            copyCover(song, songTempFolder);
             moveAudio(song, songTempFolder);
             convertMoveBeatmaps(song, songTempFolder);
             createInfo(song, songTempFolder);
@@ -243,11 +243,11 @@ namespace BSDlcConverter
             Directory.Delete(tempPath);
         }
 
-        private static void moveCover(SongModel song, string songTempFolder)
+        private static void copyCover(SongModel song, string songTempFolder)
         {
             Trace.WriteLine("Moving cover");
             string destination = Path.Combine(songTempFolder, "cover.jpg");
-            File.Move(song.coverPath, destination);
+            File.Copy(song.coverPath, destination);
         }
 
         private static void moveAudio(SongModel song, string songTempFolder)
