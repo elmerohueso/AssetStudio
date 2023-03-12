@@ -14,19 +14,17 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BSDlcConverter;
 
-namespace DlcConverter
+namespace BSDlcConverter
 {
-    public partial class MainForm : Form
+    public partial class MainScreen : Form
     {
-        public static string basePath;
         public static string tempPath;
         public static string outputPath;
         public static string spriteFolder;
         public static string audioClipFolder;
         public static string monoBehaviourFolder;
-        public MainForm()
+        public MainScreen()
         {
             InitializeComponent();
         }
@@ -46,16 +44,15 @@ namespace DlcConverter
         private void outputBrowseButton_Click(object sender, EventArgs e)
         {
             if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
-                outputBox.Text = folderBrowserDialog.SelectedPath;
+                outputFolderBox.Text = folderBrowserDialog.SelectedPath;
         }
         private async void goButton_Click(object sender, EventArgs e)
         {
-            foreach(Control c in this.Controls.Cast<Control>().Where(c => c is Button || c is TextBox || c is Label))
+            foreach (Control c in this.Controls.Cast<Control>().Where(c => c is Button || c is TextBox || c is Label))
                 c.Enabled = false;
             Assembly assembly = Assembly.GetExecutingAssembly();
-            basePath = outputBox.Text;
-            tempPath = Path.Combine(basePath, "_temp");
-            outputPath = Path.Combine(basePath, "_output");
+            outputPath = outputFolderBox.Text;
+            tempPath = Path.Combine(outputPath, "_temp");
             spriteFolder = Path.Combine(tempPath, "Sprite");
             audioClipFolder = Path.Combine(tempPath, "AudioClip");
             monoBehaviourFolder = Path.Combine(tempPath, "MonoBehaviour");
@@ -74,7 +71,7 @@ namespace DlcConverter
             {
                 statusMessage.Text = status;
             });
-            await Task.Run(() => AssetHelper.doWork(fileIn, tempPath, audio, json, sprite, progressMessage, progressAmount));
+            await Task.Run(() => AssetHelper.exportAssets(fileIn, tempPath, audio, json, sprite, progressMessage, progressAmount));
             audio = true;
             json = true;
             sprite = false;
@@ -83,37 +80,34 @@ namespace DlcConverter
             int i = 0;
             foreach (string dlcFile in dlcFiles)
             {
-                await Task.Run(() => AssetHelper.doWork(dlcFile, tempPath, audio, json, sprite, progressMessage, null));
+                await Task.Run(() => AssetHelper.exportAssets(dlcFile, tempPath, audio, json, sprite, progressMessage, null));
                 i++;
                 activityBar.Value = i * 100 / dlcFiles.Count();
             }
             statusMessage.Text = $"{dlcFiles.Count()} exported";
-            activityBar.Style = ProgressBarStyle.Marquee;
-            activityBar.MarqueeAnimationSpeed = 60;
             statusMessage.Visible = true;
-            await Task.Run(() => doConversion(progressMessage));
+            await Task.Run(() => makeCustomSongs(progressMessage, progressAmount));
             clearTemp();
             foreach (Control c in this.Controls.Cast<Control>().Where(c => c is Button || c is TextBox || c is Label))
                 c.Enabled = true;
             Process.Start("explorer.exe", outputPath);
             activityBar.Visible = false;
-            activityBar.MarqueeAnimationSpeed = 0;
         }
 
-        private static void doConversion(IProgress<string> progress)
+        private static void makeCustomSongs(IProgress<string> progressMessage, IProgress<int> progressAmount)
         {
-            progress?.Report("Finding available DLC..");
             List<SongModel> dlcToConvert = getAvailableDlc();
-            progress?.Report($"Found {dlcToConvert.Count} songs...");
+            progressMessage?.Report($"Found {dlcToConvert.Count}");
             int i = 1;
             foreach (SongModel song in dlcToConvert)
             {
-                progress?.Report($"Converting {i} of {dlcToConvert.Count} songs...");
+                progressAmount?.Report(i * 100 / dlcToConvert.Count());
+                progressMessage?.Report($"Converting \"{song.songName}\"");
                 string tempFolder = stageSongFiles(song);
                 zipSong(song, tempFolder);
                 i++;
             }
-            progress?.Report($"{dlcToConvert.Count} songs converted");
+            progressMessage?.Report($"{dlcToConvert.Count} songs converted");
         }
 
         private static List<SongModel> getAvailableDlc()
@@ -124,14 +118,15 @@ namespace DlcConverter
             DirectoryInfo monoBehaviourDirectoryInfo = new DirectoryInfo(monoBehaviourFolder);
             SongPackDefinitions possibleDlc = getSongPackDefinitions();
             List<SongModel> availableDlc = new List<SongModel>();
-            foreach(Song dlcSong in possibleDlc.songs)
+            foreach (Song dlcSong in possibleDlc.songs)
             {
+                Trace.WriteLine($"Looking for {dlcSong.internalName}");
                 SongModel song = new SongModel();
                 FileInfo songCoverFile = spriteDirectoryInfo.GetFiles().Where(file => file.Name == (dlcSong.nameOverride ?? dlcSong.internalName) + "Cover.jpg" || file.Name == dlcSong.internalName + ".jpg").LastOrDefault();
                 if (songCoverFile == null)
                 {
                     Trace.WriteLine($"Didn't find a cover file for {dlcSong.songName}. Song will be skipped.");
-                    break;
+                    continue;
                 }
                 else
                 {
@@ -142,7 +137,7 @@ namespace DlcConverter
                 if (songWavFile == null)
                 {
                     Trace.WriteLine($"Didn't find a song file for {dlcSong.songName}. Song will be skipped.");
-                    break;
+                    continue;
                 }
                 else
                 {
@@ -153,7 +148,7 @@ namespace DlcConverter
                 if (levelDataFile == null)
                 {
                     Trace.WriteLine($"Didn't find a level data file for {dlcSong.songName}. Song will be skipped.");
-                    break;
+                    continue;
                 }
                 else
                 {
@@ -165,7 +160,7 @@ namespace DlcConverter
                 if (songFiles.Count == 0)
                 {
                     Trace.WriteLine($"Didn't find any beatmap files for {dlcSong.songName}. Song will be skipped.");
-                    break;
+                    continue;
                 }
                 else
                 {
@@ -184,11 +179,11 @@ namespace DlcConverter
                 song.nameOverride = dlcSong.nameOverride;
                 song.environmentName = getEnvironmentFromSongPack(song);
                 availableDlc.Add(song);
-                
+
             }
             return availableDlc;
-        } 
-        
+        }
+
 
         private static SongPackDefinitions getSongPackDefinitions()
         {
@@ -225,8 +220,8 @@ namespace DlcConverter
         {
             string songTempFolder = Path.Combine(tempPath, song.internalName);
             Directory.CreateDirectory(songTempFolder);
-            convertMoveCover(song, songTempFolder);
-            convertMoveSong(song, songTempFolder);
+            moveCover(song, songTempFolder);
+            moveAudio(song, songTempFolder);
             convertMoveBeatmaps(song, songTempFolder);
             createInfo(song, songTempFolder);
             return songTempFolder;
@@ -245,22 +240,21 @@ namespace DlcConverter
             {
                 dir.Delete(true);
             }
+            Directory.Delete(tempPath);
         }
 
-        private static void convertMoveCover(SongModel song, string songTempFolder)
+        private static void moveCover(SongModel song, string songTempFolder)
         {
             Trace.WriteLine("Moving cover");
             string destination = Path.Combine(songTempFolder, "cover.jpg");
             File.Move(song.coverPath, destination);
         }
 
-        private static void convertMoveSong(SongModel song, string songTempFolder)
+        private static void moveAudio(SongModel song, string songTempFolder)
         {
             Trace.WriteLine("Moving song");
             string destination = Path.Combine(songTempFolder, "song.ogg");
             File.Move(song.songPath, destination);
-            //var ffMpeg = new FFMpegConverter();
-            //ffMpeg.ConvertMedia(song.songPath, destination, Format.ogg);
         }
 
         private static void convertMoveBeatmaps(SongModel song, string songTempFolder)
@@ -321,7 +315,7 @@ namespace DlcConverter
             string songOutputFolder = Path.Combine(outputPath, song.songPack);
             Directory.CreateDirectory(songOutputFolder);
             string zipFile = Path.Combine(songOutputFolder, song.internalName + ".zip");
-            if(File.Exists(zipFile))
+            if (File.Exists(zipFile))
                 File.Delete(zipFile);
             string[] files = Directory.GetFiles(songTempFolder);
             bool isComplete = true;

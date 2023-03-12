@@ -18,7 +18,7 @@ namespace BSDlcConverter
     {
         public static AssetsManager assetsManager = new AssetsManager();
         public static List<AssetItem> exportableAssets = new List<AssetItem>();
-        public static void doWork(string filePath, string folderOut, bool audio, bool json, bool sprite, IProgress<string> progressMessage, IProgress<int> progressAmount)
+        public static void exportAssets(string filePath, string folderOut, bool audio, bool json, bool sprite, IProgress<string> progressMessage, IProgress<int> progressAmount)
         {
 
             assetsManager = new AssetsManager();
@@ -31,7 +31,7 @@ namespace BSDlcConverter
         public static void createExportList(bool audio, bool json, bool sprite)
         {
             exportableAssets = new List<AssetItem>();
-            Console.WriteLine($"Creating export list");
+            Trace.WriteLine($"Creating export list");
             string productName = "";
             var objectCount = assetsManager.assetsFileList.Sum(x => x.Objects.Count);
             var objectAssetItemDic = new Dictionary<Object, AssetItem>(objectCount);

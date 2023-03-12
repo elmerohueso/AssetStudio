@@ -4,7 +4,7 @@
 		<OutputType>WinExe</OutputType>
 		<TargetFrameworks>net472</TargetFrameworks>
 		<UseWindowsForms>true</UseWindowsForms>
-		<ApplicationIcon>Resources\as.ico</ApplicationIcon>
+		<ApplicationIcon>Resources\bs.ico</ApplicationIcon>
 		<Version>0.16.0.0</Version>
 		<AssemblyVersion>0.16.0.0</AssemblyVersion>
 		<FileVersion>0.16.0.0</FileVersion>
@@ -12,6 +12,10 @@
 		<DebugType>embedded</DebugType>
 		<AllowUnsafeBlocks>False</AllowUnsafeBlocks>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <Content Include="Resources\bs.ico" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\AssetStudioUtility\AssetStudioUtility.csproj" />
