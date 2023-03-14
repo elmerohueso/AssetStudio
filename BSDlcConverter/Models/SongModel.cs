@@ -14,7 +14,7 @@ namespace DlcConverter.Models
         public string songName { get; set; }
         public string songSubName { get; set; } = "";
         public string songAuthorName { get; set; } = "";
-        public string levelAuthorName { get; set; } = "";
+        public string levelAuthorName { get; set; } = "rippedDLC";
         public double beatsPerMinute { get; set; }
         public double previewStartTime { get; set; } = 0.0;
         public int previewDuration { get; set; } = 30;
