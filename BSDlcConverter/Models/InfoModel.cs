@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DlcConverter.Models
+namespace BSDlcConverter.Models
 {
     public class InfoModel
     {

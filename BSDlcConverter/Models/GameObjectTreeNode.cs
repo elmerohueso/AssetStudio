@@ -1,7 +1,7 @@
 ﻿using System.Windows.Forms;
 using AssetStudio;
 
-namespace BSDlcConverter
+namespace BSDlcConverter.Models
 {
     public class GameObjectTreeNode : TreeNode
     {
