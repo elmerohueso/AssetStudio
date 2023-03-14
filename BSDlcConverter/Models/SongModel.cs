@@ -19,6 +19,7 @@ namespace DlcConverter.Models
         public double previewStartTime { get; set; } = 0.0;
         public int previewDuration { get; set; } = 30;
         public string environmentName { get; set; } = "FitBeatEnvironment";
+        public string playlistCoverPath { get; set; }
         public string songPack { get; set; }
         public string songPath { get; set; }
         public string coverPath { get; set; }

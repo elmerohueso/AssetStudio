@@ -71,7 +71,7 @@ namespace BSDlcConverter
             {
                 statusMessage.Text = status;
             });
-            await Task.Run(() => AssetHelper.exportAssets(fileIn, tempPath, audio, json, sprite, progressMessage, progressAmount));
+            await Task.Run(() => AssetHelper.prepareAssets(fileIn, tempPath, audio, json, sprite, progressMessage, progressAmount));
             audio = true;
             json = true;
             sprite = false;
@@ -80,7 +80,7 @@ namespace BSDlcConverter
             int i = 0;
             foreach (string dlcFile in dlcFiles)
             {
-                await Task.Run(() => AssetHelper.exportAssets(dlcFile, tempPath, audio, json, sprite, progressMessage, null));
+                await Task.Run(() => AssetHelper.prepareAssets(dlcFile, tempPath, audio, json, sprite, progressMessage, null));
                 i++;
                 activityBar.Value = i * 100 / dlcFiles.Count();
             }
@@ -178,13 +178,16 @@ namespace BSDlcConverter
                 song.songPack = dlcSong.songPack;
                 song.nameOverride = dlcSong.nameOverride;
                 song.environmentName = getEnvironmentFromSongPack(song);
+                FileInfo playlistCoverFile = spriteDirectoryInfo.GetFiles().Where(file => file.Name == getPlaylistCoverFromSongPack(song) + "Cover.jpg").LastOrDefault();
+                if (playlistCoverFile != null)
+                {
+                    Trace.WriteLine($"Found playlist cover {songCoverFile.FullName}");
+                    song.playlistCoverPath = playlistCoverFile.FullName;
+                }
                 availableDlc.Add(song);
-
             }
             return availableDlc;
         }
-
-
         private static SongPackDefinitions getSongPackDefinitions()
         {
             Assembly assembly = Assembly.GetExecutingAssembly();
@@ -193,40 +196,16 @@ namespace BSDlcConverter
             SongPackDefinitions definitions = JsonConvert.DeserializeObject<SongPackDefinitions>(File.ReadAllText(songPackDefinitionsPath));
             return definitions;
         }
-
-        private static String selectSongPack(JObject songs)
-        {
-            Dictionary<int, string> songPacks = new Dictionary<int, string>();
-            int key = 1;
-            foreach (JObject song in songs["songs"])
-            {
-                if (!songPacks.ContainsValue(song["songPack"].ToString()))
-                {
-                    songPacks.Add(key, song["songPack"].ToString());
-                    key++;
-                }
-            };
-            Console.WriteLine("Select a song pack to convert:");
-            foreach (KeyValuePair<int, string> songPack in songPacks)
-            {
-                Console.WriteLine($"{songPack.Key}. {songPack.Value}");
-            }
-            Console.WriteLine();
-            int choice = int.Parse(Console.ReadLine());
-            Console.WriteLine();
-            return songPacks[choice].ToString();
-        }
         private static string stageSongFiles(SongModel song)
         {
             string songTempFolder = Path.Combine(tempPath, song.internalName);
             Directory.CreateDirectory(songTempFolder);
-            copyCover(song, songTempFolder);
+            copySongCover(song, songTempFolder);
             moveAudio(song, songTempFolder);
             convertMoveBeatmaps(song, songTempFolder);
             createInfo(song, songTempFolder);
             return songTempFolder;
         }
-
         private static void clearTemp()
         {
             DirectoryInfo directoryInfo = new DirectoryInfo(tempPath);
@@ -243,11 +222,19 @@ namespace BSDlcConverter
             Directory.Delete(tempPath);
         }
 
-        private static void copyCover(SongModel song, string songTempFolder)
+        private static void copySongCover(SongModel song, string songTempFolder)
         {
-            Trace.WriteLine("Moving cover");
+            Trace.WriteLine("Copying song cover");
             string destination = Path.Combine(songTempFolder, "cover.jpg");
             File.Copy(song.coverPath, destination);
+        }
+        private static void copyPlaylistCover(SongModel song, string playlistFolder)
+        {
+            string destination = Path.Combine(playlistFolder, "playlist.jpg");
+            if (song.playlistCoverPath == null || File.Exists(destination))
+                return;
+            Trace.WriteLine("Copying playlist cover");
+            File.Copy(song.playlistCoverPath, destination);
         }
 
         private static void moveAudio(SongModel song, string songTempFolder)
@@ -314,6 +301,7 @@ namespace BSDlcConverter
             Trace.WriteLine("Zipping song files");
             string songOutputFolder = Path.Combine(outputPath, song.songPack);
             Directory.CreateDirectory(songOutputFolder);
+            copyPlaylistCover(song, songOutputFolder);
             string zipFile = Path.Combine(songOutputFolder, song.internalName + ".zip");
             if (File.Exists(zipFile))
                 File.Delete(zipFile);
@@ -335,7 +323,68 @@ namespace BSDlcConverter
             if (!isComplete)
                 Trace.WriteLine("Song is likely missing files!");
         }
-
+        private static string getPlaylistCoverFromSongPack(SongModel song)
+        {
+            string playlistCover = "";
+            switch (song.songPack)
+            {
+                case "Billie Eilish":
+                    playlistCover = "BillieEilish";
+                    break;
+                case "BTS":
+                    playlistCover = "BTS";
+                    break;
+                case "Electronic Mixtape":
+                    playlistCover = "EDM";
+                    break;
+                case "Fall Out Boy":
+                    playlistCover = "FallOutBoy";
+                    break;
+                case "Green Day":
+                    playlistCover = "GreenDay";
+                    break;
+                case "Imagine Dragons":
+                    playlistCover = "ImagineDragons";
+                    break;
+                case "Interscope Mixtape":
+                    playlistCover = "Interscope";
+                    break;
+                case "Lady Gaga":
+                    playlistCover = "LadyGaga";
+                    break;
+                case "Linkin Park":
+                    playlistCover = "LinkinPark";
+                    break;
+                case "Lizzo":
+                    playlistCover = "Lizzo";
+                    break;
+                case "Monstercat Vol. 1":
+                    playlistCover = "MonstercatVol1";
+                    break;
+                case "Monstercat X Rocket League":
+                    playlistCover = "RocketLeague";
+                    break;
+                case "Panic! at the Disco":
+                    playlistCover = "PanicAtTheDisco";
+                    break;
+                case "Skrillex":
+                    playlistCover = "Skrillex";
+                    break;
+                case "Timbaland":
+                    playlistCover = "Timbaland";
+                    break;
+                case "The Weeknd":
+                    playlistCover = "TheWeeknd";
+                    break;
+                case "Rock Mixtape":
+                    playlistCover = "RockMixtape";
+                    break;
+                default:
+                    playlistCover = "BeatSaber";
+                    break;
+            }
+            return playlistCover;
+        }
         private static string getEnvironmentFromSongPack(SongModel song)
         {
             string environmentName = "";

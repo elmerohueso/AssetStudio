@@ -18,7 +18,7 @@ namespace BSDlcConverter
     {
         public static AssetsManager assetsManager = new AssetsManager();
         public static List<AssetItem> exportableAssets = new List<AssetItem>();
-        public static void exportAssets(string filePath, string folderOut, bool audio, bool json, bool sprite, IProgress<string> progressMessage, IProgress<int> progressAmount)
+        public static void prepareAssets(string filePath, string folderOut, bool audio, bool json, bool sprite, IProgress<string> progressMessage, IProgress<int> progressAmount)
         {
 
             assetsManager = new AssetsManager();
@@ -26,13 +26,12 @@ namespace BSDlcConverter
             assetsManager.LoadFiles(filePath);
             createExportList(audio, json, sprite);
             progressMessage?.Report($"Found {exportableAssets.Count} assets to export");
-            ExportAssets(folderOut, exportableAssets, progressMessage, progressAmount);
+            exportAssets(folderOut, exportableAssets, progressMessage, progressAmount);
         }
         public static void createExportList(bool audio, bool json, bool sprite)
         {
             exportableAssets = new List<AssetItem>();
             Trace.WriteLine($"Creating export list");
-            string productName = "";
             var objectCount = assetsManager.assetsFileList.Sum(x => x.Objects.Count);
             var objectAssetItemDic = new Dictionary<Object, AssetItem>(objectCount);
             var containers = new List<(PPtr<Object>, string)>();
@@ -77,7 +76,7 @@ namespace BSDlcConverter
                 }
             }
         }
-        public static void ExportAssets(string savePath, List<AssetItem> toExportAssets, IProgress<string> progressMessage, IProgress<int> progressAmount)
+        public static void exportAssets(string savePath, List<AssetItem> toExportAssets, IProgress<string> progressMessage, IProgress<int> progressAmount)
         {
             int toExportCount = toExportAssets.Count;
             int exportedCount = 0;

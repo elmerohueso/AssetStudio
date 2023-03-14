@@ -51,7 +51,7 @@
             this.statusMessage.Location = new System.Drawing.Point(131, 90);
             this.statusMessage.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.statusMessage.Name = "statusMessage";
-            this.statusMessage.Size = new System.Drawing.Size(99, 13);
+            this.statusMessage.Size = new System.Drawing.Size(116, 15);
             this.statusMessage.TabIndex = 38;
             this.statusMessage.Text = "Progress Messages";
             this.statusMessage.Visible = false;
@@ -93,13 +93,14 @@
             this.outputFolderBox.Name = "outputFolderBox";
             this.outputFolderBox.Size = new System.Drawing.Size(200, 20);
             this.outputFolderBox.TabIndex = 29;
+            this.outputFolderBox.Text = "C:\\ExportedDLC";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(52, 61);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 13);
+            this.label3.Size = new System.Drawing.Size(81, 15);
             this.label3.TabIndex = 28;
             this.label3.Text = "Output Folder";
             // 
@@ -127,7 +128,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(20, 35);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 13);
+            this.label2.Size = new System.Drawing.Size(125, 15);
             this.label2.TabIndex = 25;
             this.label2.Text = "sharedassets0.assets";
             // 
@@ -154,7 +155,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(116, 13);
+            this.label1.Size = new System.Drawing.Size(133, 15);
             this.label1.TabIndex = 22;
             this.label1.Text = "Beat Saber DLC Folder";
             // 
