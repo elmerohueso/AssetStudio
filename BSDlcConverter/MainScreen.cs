@@ -33,14 +33,12 @@ namespace BSDlcConverter
             if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
                 dlcFolderBox.Text = folderBrowserDialog.SelectedPath;
         }
-
         private void sharedAssetsBrowse_Click(object sender, EventArgs e)
         {
             openFileDialog.Filter = "sharedassets0.assets | sharedassets0.assets";
             if (openFileDialog.ShowDialog() == DialogResult.OK)
                 sharedAssetsBox.Text = openFileDialog.FileName;
         }
-
         private void outputBrowseButton_Click(object sender, EventArgs e)
         {
             if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
@@ -93,7 +91,6 @@ namespace BSDlcConverter
             Process.Start("explorer.exe", outputPath);
             activityBar.Visible = false;
         }
-
         private static void makeCustomSongs(IProgress<string> progressMessage, IProgress<int> progressAmount)
         {
             List<SongModel> dlcToConvert = getAvailableDlc();
@@ -109,10 +106,8 @@ namespace BSDlcConverter
             }
             progressMessage?.Report($"{dlcToConvert.Count} songs converted");
         }
-
         private static List<SongModel> getAvailableDlc()
         {
-
             DirectoryInfo spriteDirectoryInfo = new DirectoryInfo(spriteFolder);
             DirectoryInfo audioClipDirectoryInfo = new DirectoryInfo(audioClipFolder);
             DirectoryInfo monoBehaviourDirectoryInfo = new DirectoryInfo(monoBehaviourFolder);
@@ -221,7 +216,6 @@ namespace BSDlcConverter
             }
             Directory.Delete(tempPath);
         }
-
         private static void copySongCover(SongModel song, string songTempFolder)
         {
             Trace.WriteLine("Copying song cover");
@@ -236,14 +230,12 @@ namespace BSDlcConverter
             Trace.WriteLine("Copying playlist cover");
             File.Copy(song.playlistCoverPath, destination);
         }
-
         private static void moveAudio(SongModel song, string songTempFolder)
         {
             Trace.WriteLine("Moving song");
             string destination = Path.Combine(songTempFolder, "song.ogg");
             File.Move(song.songPath, destination);
         }
-
         private static void convertMoveBeatmaps(SongModel song, string songTempFolder)
         {
             Trace.WriteLine("Converting beatmaps");
@@ -260,7 +252,6 @@ namespace BSDlcConverter
                 File.WriteAllText(mapPath, JsonConvert.SerializeObject(mapData));
             }
         }
-
         private static void createInfo(SongModel song, string songTempFolder)
         {
             Trace.WriteLine("Creating info.dat");
@@ -295,7 +286,6 @@ namespace BSDlcConverter
             }
             File.WriteAllText(newFilename, JsonConvert.SerializeObject(info));
         }
-
         private static void zipSong(SongModel song, string songTempFolder)
         {
             Trace.WriteLine("Zipping song files");
