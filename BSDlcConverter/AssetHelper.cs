@@ -53,7 +53,7 @@ namespace BSDlcConverter
                             break;
                         case Sprite _:
                             assetItem.Text = ((NamedObject)asset).m_Name;
-                            if (sprite && assetItem.Text.Contains("Cover"))
+                            if (sprite && (assetItem.Text.Contains("Cover") || assetItem.Text.Contains("Freestyler")))
                                 exportable = true;
                             break;
                         case MonoBehaviour m_MonoBehaviour:
