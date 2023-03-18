@@ -231,43 +231,79 @@ namespace BSDlcConverter
         }
         private static void copySongCover(SongModel song, string songTempFolder)
         {
-            mainLog.Debug($"Copying song cover: {song.coverPath}");
             string destination = Path.Combine(songTempFolder, "cover.jpg");
-            File.Copy(song.coverPath, destination);
+            mainLog.Debug($@"Copying song cover
+                source: {song.coverPath}
+                destination: {destination}");
+            try
+            {
+                File.Copy(song.coverPath, destination);
+            }
+            catch (Exception ex)
+            {
+                mainLog.Error("Failed to copy image: " + ex);
+            }
         }
         private static void copyPlaylistCover(SongModel song, string playlistFolder)
         {
             string destination = Path.Combine(playlistFolder, "playlist.jpg");
             if (song.playlistCoverPath == null || File.Exists(destination))
                 return;
-            mainLog.Debug($"Copying playlist cover: {song.playlistCoverPath}");
-            File.Copy(song.playlistCoverPath, destination);
+
+            mainLog.Debug($@"Copying playlist cover
+                source: {song.playlistCoverPath}
+                destination: {destination}");
+            try
+            {
+                File.Copy(song.playlistCoverPath, destination);
+            }
+            catch (Exception ex)
+            {
+                mainLog.Error("Failed to copy image: " + ex);
+            }
         }
         private static void moveAudio(SongModel song, string songTempFolder)
         {
-            mainLog.Debug($"Moving song: {song.songPath}");
             string destination = Path.Combine(songTempFolder, "song.ogg");
-            File.Move(song.songPath, destination);
+            mainLog.Debug($@"Moving song
+                source: {song.songPath}
+                destination: {destination}");
+            try
+            {
+                File.Move(song.songPath, destination);
+            }
+            catch (Exception ex)
+            {
+                mainLog.Error("Failed to move song: " + ex);
+            }
         }
         private static void convertMoveBeatmaps(SongModel song, string songTempFolder)
         {
             foreach (string beatMapFile in song.beatMapFiles)
             {
-                mainLog.Debug($"Converting beatmap: {beatMapFile}");
                 string mapFileName = Path.GetFileName(beatMapFile).Replace(song.internalName, "");
                 mapFileName = mapFileName.Replace("BeatmapData.json", ".dat");
                 string mapPath = Path.Combine(songTempFolder, mapFileName);
+                mainLog.Debug($@"Writing beatmap
+                source: {beatMapFile}
+                destination: {mapPath}");
                 JObject jsonData = JObject.Parse(File.ReadAllText(beatMapFile));
                 JObject mapData = JObject.Parse(jsonData["_jsonData"].ToString());
                 if (mapData.ContainsKey("version"))
                     if (mapData["version"].ToString().StartsWith("3.2"))
                         mapData["version"] = "3.1.0";
-                File.WriteAllText(mapPath, JsonConvert.SerializeObject(mapData));
+                try
+                {
+                    File.WriteAllText(mapPath, JsonConvert.SerializeObject(mapData));
+                }
+                catch (Exception ex)
+                {
+                    mainLog.Error("Failed to write beatmap: " + ex);
+                }
             }
         }
         private static void createInfo(SongModel song, string songTempFolder)
         {
-            mainLog.Debug("Creating info.dat");
             JObject levelData = JObject.Parse(File.ReadAllText(song.levelDataPath));
             InfoModel info = levelData.ToObject<InfoModel>();
             string newFilename = Path.Combine(songTempFolder, "Info.dat");
@@ -297,7 +333,15 @@ namespace BSDlcConverter
                         difficultyBeatmap._beatmapFilename = difficultybeatmapset._beatmapCharacteristicName + difficultyBeatmap._difficulty + ".dat";
                 }
             }
-            File.WriteAllText(newFilename, JsonConvert.SerializeObject(info));
+            mainLog.Debug($"Writing \"{newFilename}\"");
+            try
+            {
+                File.WriteAllText(newFilename, JsonConvert.SerializeObject(info));
+            }
+            catch (Exception ex)
+            {
+                mainLog.Error("Failed to write info.dat: " + ex.ToString());
+            }
         }
         private static void zipSong(SongModel song, string songTempFolder)
         {
