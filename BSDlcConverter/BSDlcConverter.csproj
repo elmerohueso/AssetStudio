@@ -36,11 +36,15 @@
 
 	<ItemGroup>
 		<PackageReference Include="Fmod5Sharp" Version="3.0.1" />
+		<PackageReference Include="log4net" Version="2.0.15" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
 		<PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Update="App.config">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
 	  <None Update="SongPackDefinitions.json">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>

@@ -7,18 +7,20 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using BSDlcConverter.Models;
+using System.Reflection;
 
 namespace BSDlcConverter
 {
     internal static class Exporter
     {
+        public static readonly log4net.ILog exportLog = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
         public static AssemblyLoader assemblyLoader = new AssemblyLoader();
         public static bool ExportConvertFile(AssetItem item, string exportPath)
         {
             switch (item.Type)
             {
                 case ClassIDType.AudioClip:
-                    return ExportAudioClip(item, exportPath, true);
+                    return ExportAudioClip(item, exportPath);
                 case ClassIDType.MonoBehaviour:
                     return ExportMonoBehaviour(item, exportPath);
                 case ClassIDType.Sprite:
@@ -27,14 +29,15 @@ namespace BSDlcConverter
                     return ExportRawFile(item, exportPath);
             }
         }
-        public static bool ExportAudioClip(AssetItem item, string exportPath, bool convert)
+        public static bool ExportAudioClip(AssetItem item, string exportPath)
         {
-            var m_AudioClip = (AudioClip)item.Asset;
-            var m_AudioData = m_AudioClip.m_AudioData.GetData();
-            if (m_AudioData == null || m_AudioData.Length == 0)
-                return false;
-            if (convert)
+            exportLog.Debug($"Getting audio from \"{item.Text}\"");
+            try
             {
+                var m_AudioClip = (AudioClip)item.Asset;
+                var m_AudioData = m_AudioClip.m_AudioData.GetData();
+                if (m_AudioData == null || m_AudioData.Length == 0)
+                    return false;
                 string tempPath = Path.Combine(exportPath, "_temp");
                 if (!TryExportFile(exportPath, item, ".ogg", out var exportFullPath))
                     return false;
@@ -45,53 +48,73 @@ namespace BSDlcConverter
                 var success = samples[0].RebuildAsStandardFileFormat(out var dataBytes, out var fileExtension);
                 if (success)
                 {
-                    //Console.WriteLine($"Converting audio to \"{exportFullPath}\"");
                     File.WriteAllBytes(exportFullPath, dataBytes);
+                    return true;
                 }
-                // Eventually add logging for these errors
                 else
-                    Console.WriteLine("Sound bank did not contain OGG data");
-            }
-            else
-            {
-                if (!TryExportFile(exportPath, item, ".fsb", out var exportFullPath))
+                {
+                    exportLog.Error("Sound bank did not contain OGG data");
                     return false;
-                File.WriteAllBytes(exportFullPath, m_AudioData);
+                }
             }
-            return true;
+            catch
+            {
+                exportLog.Error("Audio export failed");
+                return false;
+            }
         }
         public static bool ExportMonoBehaviour(AssetItem item, string exportPath)
         {
-            if (!TryExportFile(exportPath, item, ".json", out var exportFullPath))
-                return false;
-            var m_MonoBehaviour = (MonoBehaviour)item.Asset;
-            var type = m_MonoBehaviour.ToType();
-            if (type == null)
+            exportLog.Debug($"Getting JSON from \"{item.Text}\"");
+            try
             {
-                var m_Type = m_MonoBehaviour.ConvertToTypeTree(assemblyLoader);
-                type = m_MonoBehaviour.ToType(m_Type);
+
+                if (!TryExportFile(exportPath, item, ".json", out var exportFullPath))
+                    return false;
+                var m_MonoBehaviour = (MonoBehaviour)item.Asset;
+                var type = m_MonoBehaviour.ToType();
+                if (type == null)
+                {
+                    var m_Type = m_MonoBehaviour.ConvertToTypeTree(assemblyLoader);
+                    type = m_MonoBehaviour.ToType(m_Type);
+                }
+                var str = JsonConvert.SerializeObject(type, Formatting.Indented);
+                File.WriteAllText(exportFullPath, str);
+                return true;
             }
-            var str = JsonConvert.SerializeObject(type, Formatting.Indented);
-            File.WriteAllText(exportFullPath, str);
-            return true;
+            catch
+            {
+                exportLog.Error("JSON export failed");
+                return false;
+            }
         }
         public static bool ExportSprite(AssetItem item, string exportPath)
         {
-            var type = ImageFormat.Jpeg;
-            if (!TryExportFile(exportPath, item, ".jpg", out var exportFullPath))
-                return false;
-            var image = ((Sprite)item.Asset).GetImage();
-            if (image != null)
+            exportLog.Debug($"Getting image from \"{item.Text}\"");
+            try
             {
-                using (image)
+                var type = ImageFormat.Jpeg;
+                if (!TryExportFile(exportPath, item, ".jpg", out var exportFullPath))
+                    return false;
+                var image = ((Sprite)item.Asset).GetImage();
+                if (image != null)
                 {
-                    using (var file = File.OpenWrite(exportFullPath))
+                    using (image)
                     {
-                        image.WriteToStream(file, type);
+                        using (var file = File.OpenWrite(exportFullPath))
+                        {
+                            image.WriteToStream(file, type);
+                        }
+                        return true;
                     }
-                    return true;
                 }
             }
+            catch
+            {
+                exportLog.Error("Image export failed");
+                return false;
+            }
+            exportLog.Error("Image export failed");
             return false;
         }
         public static bool ExportRawFile(AssetItem item, string exportPath)
@@ -108,12 +131,14 @@ namespace BSDlcConverter
             if (!File.Exists(fullPath))
             {
                 Directory.CreateDirectory(dir);
+                exportLog.Debug($"Will output to \"{fullPath}\"");
                 return true;
             }
             fullPath = Path.Combine(dir, fileName + item.UniqueID + extension);
             if (!File.Exists(fullPath))
             {
                 Directory.CreateDirectory(dir);
+                exportLog.Debug($"Will output to \"{fullPath}\"");
                 return true;
             }
             return false;

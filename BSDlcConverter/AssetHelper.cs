@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AssetStudio;
@@ -14,6 +15,7 @@ namespace BSDlcConverter
 {
     internal class AssetHelper
     {
+        public static readonly log4net.ILog assetLog = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
         public static AssetsManager assetsManager = new AssetsManager();
         public static List<AssetItem> exportableAssets = new List<AssetItem>();
         public static void prepareAssets(string filePath, string folderOut, bool audio, bool json, bool sprite, IProgress<string> progressMessage, IProgress<int> progressAmount)
@@ -29,7 +31,7 @@ namespace BSDlcConverter
         public static void createExportList(bool audio, bool json, bool sprite)
         {
             exportableAssets = new List<AssetItem>();
-            Trace.WriteLine($"Creating export list");
+            assetLog.Debug($"Creating export list");
             var objectCount = assetsManager.assetsFileList.Sum(x => x.Objects.Count);
             var objectAssetItemDic = new Dictionary<Object, AssetItem>(objectCount);
             var containers = new List<(PPtr<Object>, string)>();
@@ -96,7 +98,7 @@ namespace BSDlcConverter
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Export {asset.Type}:{asset.Text} error\r\n{ex.Message}\r\n{ex.StackTrace}");
+                    assetLog.Error($"Export {asset.Type}:{asset.Text} error\r\n{ex.Message}\r\n{ex.StackTrace}");
                 }
                 i++;
             }

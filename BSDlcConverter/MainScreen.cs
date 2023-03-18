@@ -19,6 +19,7 @@ namespace BSDlcConverter
 {
     public partial class MainScreen : Form
     {
+        public static readonly log4net.ILog mainLog = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
         public static string tempPath;
         public static string outputPath;
         public static string spriteFolder;
@@ -26,11 +27,12 @@ namespace BSDlcConverter
         public static string monoBehaviourFolder;
         public MainScreen()
         {
+            mainLog.Debug("Starting up");
             InitializeComponent();
         }
         private void dlcFolderBrowse_Click(object sender, EventArgs e)
         {
-            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            if (folderBrowserDialog.ShowDialog() == DialogResult.OK) { }
                 dlcFolderBox.Text = folderBrowserDialog.SelectedPath;
         }
         private void sharedAssetsBrowse_Click(object sender, EventArgs e)
@@ -54,6 +56,15 @@ namespace BSDlcConverter
             spriteFolder = Path.Combine(tempPath, "Sprite");
             audioClipFolder = Path.Combine(tempPath, "AudioClip");
             monoBehaviourFolder = Path.Combine(tempPath, "MonoBehaviour");
+            mainLog.Debug(
+                $@"Starting conversion
+                Beat Saber DLC Folder: {dlcFolderBox.Text}
+                sharedassets0.assets: {sharedAssetsBox.Text}
+                Output Folder: {outputFolderBox.Text}
+                tempPath: {tempPath}
+                spriteFolder: {spriteFolder}
+                audioClipFolder: {audioClipFolder}
+                monoBehaviourFolder: {monoBehaviourFolder}");
             clearTemp();
             activityBar.Visible = true;
             statusMessage.Visible = true;
@@ -88,6 +99,7 @@ namespace BSDlcConverter
             clearTemp();
             foreach (Control c in this.Controls.Cast<Control>().Where(c => c is Button || c is TextBox || c is Label))
                 c.Enabled = true;
+            mainLog.Debug("Conversion finished");
             Process.Start("explorer.exe", outputPath);
             activityBar.Visible = false;
         }
@@ -100,6 +112,7 @@ namespace BSDlcConverter
             {
                 progressAmount?.Report(i * 100 / dlcToConvert.Count());
                 progressMessage?.Report($"Converting \"{song.songName}\"");
+                mainLog.Debug($"Converting \"{song.songName}\"");
                 string tempFolder = stageSongFiles(song);
                 zipSong(song, tempFolder);
                 i++;
@@ -115,53 +128,53 @@ namespace BSDlcConverter
             List<SongModel> availableDlc = new List<SongModel>();
             foreach (Song dlcSong in possibleDlc.songs)
             {
-                Trace.WriteLine($"Looking for {dlcSong.internalName}");
+                mainLog.Debug($"Looking for {dlcSong.internalName}");
                 SongModel song = new SongModel();
                 FileInfo songCoverFile = spriteDirectoryInfo.GetFiles().Where(file => file.Name == (dlcSong.nameOverride ?? dlcSong.internalName) + "Cover.jpg" || file.Name == dlcSong.internalName + ".jpg").LastOrDefault();
                 if (songCoverFile == null)
                 {
-                    Trace.WriteLine($"Didn't find a cover file for {dlcSong.songName}. Song will be skipped.");
-                    continue;
+                    mainLog.Error($"Didn't find a cover file for {dlcSong.internalName}.");
+                    //continue;
                 }
                 else
                 {
-                    Trace.WriteLine($"Found cover {songCoverFile.FullName}");
+                    mainLog.Debug($"Found cover {songCoverFile.FullName}");
                     song.coverPath = songCoverFile.FullName;
                 }
                 FileInfo songWavFile = audioClipDirectoryInfo.GetFiles().Where(file => file.Name == dlcSong.internalName + ".ogg").FirstOrDefault();
                 if (songWavFile == null)
                 {
-                    Trace.WriteLine($"Didn't find a song file for {dlcSong.songName}. Song will be skipped.");
+                    mainLog.Error($"Didn't find a song file for {dlcSong.internalName}. Song will be skipped.");
                     continue;
                 }
                 else
                 {
-                    Trace.WriteLine($"Found song {songWavFile.FullName}");
+                    mainLog.Debug($"Found song {songWavFile.FullName}");
                     song.songPath = songWavFile.FullName;
                 }
                 FileInfo levelDataFile = monoBehaviourDirectoryInfo.GetFiles().Where(file => file.Name == dlcSong.internalName + "BeatmapLevelData.json").FirstOrDefault();
                 if (levelDataFile == null)
                 {
-                    Trace.WriteLine($"Didn't find a level data file for {dlcSong.songName}. Song will be skipped.");
+                    mainLog.Error($"Didn't find a level data file for {dlcSong.internalName}. Song will be skipped.");
                     continue;
                 }
                 else
                 {
-                    Trace.WriteLine($"Found level data {levelDataFile.FullName}");
+                    mainLog.Debug($"Found level data {levelDataFile.FullName}");
                     song.levelDataPath = levelDataFile.FullName;
                 }
                 List<FileInfo> songFiles = new List<FileInfo>();
                 songFiles.AddRange(monoBehaviourDirectoryInfo.EnumerateFiles().Where(file => file.Name.StartsWith(dlcSong.internalName) && file.Name.EndsWith("BeatmapData.json")));
                 if (songFiles.Count == 0)
                 {
-                    Trace.WriteLine($"Didn't find any beatmap files for {dlcSong.songName}. Song will be skipped.");
+                    mainLog.Error($"Didn't find any beatmap files for {dlcSong.songName}. Song will be skipped.");
                     continue;
                 }
                 else
                 {
                     foreach (FileInfo songFile in songFiles)
                     {
-                        Trace.WriteLine($"Found map {songFile.FullName}");
+                        mainLog.Debug($"Found map {songFile.FullName}");
                         song.beatMapFiles.Add(songFile.FullName);
                     }
                 }
@@ -176,7 +189,7 @@ namespace BSDlcConverter
                 FileInfo playlistCoverFile = spriteDirectoryInfo.GetFiles().Where(file => file.Name == getPlaylistCoverFromSongPack(song) + "Cover.jpg").LastOrDefault();
                 if (playlistCoverFile != null)
                 {
-                    Trace.WriteLine($"Found playlist cover {songCoverFile.FullName}");
+                    mainLog.Debug($"Found playlist cover {songCoverFile.FullName}");
                     song.playlistCoverPath = playlistCoverFile.FullName;
                 }
                 availableDlc.Add(song);
@@ -218,7 +231,7 @@ namespace BSDlcConverter
         }
         private static void copySongCover(SongModel song, string songTempFolder)
         {
-            Trace.WriteLine("Copying song cover");
+            mainLog.Debug($"Copying song cover: {song.coverPath}");
             string destination = Path.Combine(songTempFolder, "cover.jpg");
             File.Copy(song.coverPath, destination);
         }
@@ -227,20 +240,20 @@ namespace BSDlcConverter
             string destination = Path.Combine(playlistFolder, "playlist.jpg");
             if (song.playlistCoverPath == null || File.Exists(destination))
                 return;
-            Trace.WriteLine("Copying playlist cover");
+            mainLog.Debug($"Copying playlist cover: {song.playlistCoverPath}");
             File.Copy(song.playlistCoverPath, destination);
         }
         private static void moveAudio(SongModel song, string songTempFolder)
         {
-            Trace.WriteLine("Moving song");
+            mainLog.Debug($"Moving song: {song.songPath}");
             string destination = Path.Combine(songTempFolder, "song.ogg");
             File.Move(song.songPath, destination);
         }
         private static void convertMoveBeatmaps(SongModel song, string songTempFolder)
         {
-            Trace.WriteLine("Converting beatmaps");
             foreach (string beatMapFile in song.beatMapFiles)
             {
+                mainLog.Debug($"Converting beatmap: {beatMapFile}");
                 string mapFileName = Path.GetFileName(beatMapFile).Replace(song.internalName, "");
                 mapFileName = mapFileName.Replace("BeatmapData.json", ".dat");
                 string mapPath = Path.Combine(songTempFolder, mapFileName);
@@ -254,7 +267,7 @@ namespace BSDlcConverter
         }
         private static void createInfo(SongModel song, string songTempFolder)
         {
-            Trace.WriteLine("Creating info.dat");
+            mainLog.Debug("Creating info.dat");
             JObject levelData = JObject.Parse(File.ReadAllText(song.levelDataPath));
             InfoModel info = levelData.ToObject<InfoModel>();
             string newFilename = Path.Combine(songTempFolder, "Info.dat");
@@ -288,7 +301,7 @@ namespace BSDlcConverter
         }
         private static void zipSong(SongModel song, string songTempFolder)
         {
-            Trace.WriteLine("Zipping song files");
+            mainLog.Debug($"Zipping files for {song.internalName}");
             string songOutputFolder = Path.Combine(outputPath, song.songPack);
             Directory.CreateDirectory(songOutputFolder);
             copyPlaylistCover(song, songOutputFolder);
@@ -311,7 +324,9 @@ namespace BSDlcConverter
                 }
             }
             if (!isComplete)
-                Trace.WriteLine("Song is likely missing files!");
+                mainLog.Error($"{zipFile} is likely missing files!");
+            else
+                mainLog.Debug($"{zipFile} should be complete");
         }
         private static string getPlaylistCoverFromSongPack(SongModel song)
         {
