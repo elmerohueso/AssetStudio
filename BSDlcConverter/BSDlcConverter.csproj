@@ -5,7 +5,7 @@
 		<TargetFrameworks>net472</TargetFrameworks>
 		<UseWindowsForms>true</UseWindowsForms>
 		<ApplicationIcon>Resources\bs.ico</ApplicationIcon>
-		<Version>1.1.0</Version>
+		<Version>1.2</Version>
 		<AssemblyVersion></AssemblyVersion>
 		<FileVersion></FileVersion>
 		<Copyright></Copyright>
