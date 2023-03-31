@@ -819,6 +819,48 @@
       "songPack": "Panic! at the Disco"
     },
     {
+      "internalName": "CrazyGenius",
+      "songName": "Crazy = Genius",
+      "songAuthorName": "Panic! at the Disco",
+      "beatsPerMinute": "114",
+      "songPack": "Panic! at the Disco"
+    },
+    {
+      "internalName": "DancingsNotACrime",
+      "songName": "Dancing's Not A Crime",
+      "songAuthorName": "Panic! at the Disco",
+      "beatsPerMinute": "94",
+      "songPack": "Panic! at the Disco"
+    },
+    {
+      "internalName": "HeyLookMaIMadeIt",
+      "songName": "Hey Look Ma, I Made It",
+      "songAuthorName": "Panic! at the Disco",
+      "beatsPerMinute": "108",
+      "songPack": "Panic! at the Disco"
+    },
+    {
+      "internalName": "SayAmen",
+      "songName": "Say Amen (Saturday Night)",
+      "songAuthorName": "Panic! at the Disco",
+      "beatsPerMinute": "168",
+      "songPack": "Panic! at the Disco"
+    },
+    {
+      "internalName": "SugarSoaker",
+      "songName": "Sugar Soaker",
+      "songAuthorName": "Panic! at the Disco",
+      "beatsPerMinute": "135",
+      "songPack": "Panic! at the Disco"
+    },
+    {
+      "internalName": "VivaLasVengeance",
+      "songName": "Viva Las Vengeance",
+      "songAuthorName": "Panic! at the Disco",
+      "beatsPerMinute": "154",
+      "songPack": "Panic! at the Disco"
+    },
+    {
       "internalName": "Bangarang",
       "songName": "Bangarang",
       "songSubName": "feat. Sirah",
