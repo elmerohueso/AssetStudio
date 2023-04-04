@@ -53,9 +53,9 @@ namespace BSDlcConverter
                             if (audio)
                                 exportable = true;
                             break;
-                        case Sprite _:
-                            assetItem.Text = ((NamedObject)asset).m_Name;
-                            if (sprite && (assetItem.Text.Contains("Cover") || assetItem.Text.Contains("Freestyler")))
+                        case Sprite m_Sprite:
+                            assetItem.Text = m_Sprite.m_Name;
+                            if (sprite)
                                 exportable = true;
                             break;
                         case MonoBehaviour m_MonoBehaviour:

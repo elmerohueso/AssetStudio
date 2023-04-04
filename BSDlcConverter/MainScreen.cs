@@ -130,7 +130,7 @@ namespace BSDlcConverter
             {
                 mainLog.Debug($"Looking for {dlcSong.internalName}");
                 SongModel song = new SongModel();
-                FileInfo songCoverFile = spriteDirectoryInfo.GetFiles().Where(file => file.Name == (dlcSong.nameOverride ?? dlcSong.internalName) + "Cover.jpg" || file.Name == dlcSong.internalName + ".jpg").LastOrDefault();
+                FileInfo songCoverFile = spriteDirectoryInfo.GetFiles().Where(file => file.Name.StartsWith(dlcSong.nameOverride ?? dlcSong.internalName) && file.Name.EndsWith(".jpg")).FirstOrDefault();
                 if (songCoverFile == null)
                 {
                     mainLog.Error($"Didn't find a cover file for {dlcSong.internalName}.");
@@ -189,7 +189,7 @@ namespace BSDlcConverter
                 FileInfo playlistCoverFile = spriteDirectoryInfo.GetFiles().Where(file => file.Name == getPlaylistCoverFromSongPack(song) + "Cover.jpg").LastOrDefault();
                 if (playlistCoverFile != null)
                 {
-                    mainLog.Debug($"Found playlist cover {songCoverFile.FullName}");
+                    mainLog.Debug($"Found playlist cover {playlistCoverFile.FullName}");
                     song.playlistCoverPath = playlistCoverFile.FullName;
                 }
                 availableDlc.Add(song);
