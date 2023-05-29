@@ -428,6 +428,9 @@ namespace BSDlcConverter
                 case "Rock Mixtape":
                     playlistCover = "RockMixtape";
                     break;
+                case "Queen":
+                    playlistCover = "Queen";
+                    break;
                 default:
                     playlistCover = "BeatSaber";
                     break;

@@ -1080,6 +1080,83 @@
       "songAuthorName": "Foo Fighters",
       "beatsPerMinute": "21.13",
       "songPack": "Rock Mixtape"
+    },
+    {
+      "internalName": "AnotherOneBitesTheDust",
+      "songName": "Another One Bites the Dust",
+      "songAuthorName": "Queen",
+      "beatsPerMinute": "109.99",
+      "songPack": "Queen"
+    },
+    {
+      "internalName": "BohemianRhapsody",
+      "songName": "Bohemian Rhapsody",
+      "songAuthorName": "Queen",
+      "beatsPerMinute": "64.74",
+      "songPack": "Queen"
+    },
+    {
+      "internalName": "CrazyLittleThingCalledLove",
+      "songName": "Crazy Little Thing Called Love",
+      "songAuthorName": "Queen",
+      "beatsPerMinute": "77.26",
+      "songPack": "Queen"
+    },
+    {
+      "internalName": "DontStopMeNow",
+      "songName": "Don't Stop Me Now'",
+      "songAuthorName": "Queen",
+      "beatsPerMinute": "150.69",
+      "songPack": "Queen"
+    },
+    {
+      "internalName": "IWantItAll",
+      "songName": "I Want It All",
+      "songAuthorName": "Queen",
+      "beatsPerMinute": "87.58",
+      "songPack": "Queen"
+    },
+    {
+      "internalName": "KillerQueen",
+      "songName": "Killer Queen",
+      "songAuthorName": "Queen",
+      "beatsPerMinute": "115.47",
+      "songPack": "Queen"
+    },
+    {
+      "internalName": "OneVision",
+      "songName": "One Vision",
+      "songAuthorName": "Queen",
+      "beatsPerMinute": "114.18",
+      "songPack": "Queen"
+    },
+    {
+      "internalName": "SomebodyToLove",
+      "songName": "Somebody to Love",
+      "songAuthorName": "Queen",
+      "beatsPerMinute": "134.22",
+      "songPack": "Queen"
+    },
+    {
+      "internalName": "StoneColdCrazy",
+      "songName": "Stone Cold Crazy",
+      "songAuthorName": "Queen",
+      "beatsPerMinute": "112.06",
+      "songPack": "Queen"
+    },
+    {
+      "internalName": "WeAreTheChampions",
+      "songName": "We Are The Champions",
+      "songAuthorName": "Queen",
+      "beatsPerMinute": "63.21",
+      "songPack": "Queen"
+    },
+    {
+      "internalName": "WeWillRockYou",
+      "songName": "We Will Rock You",
+      "songAuthorName": "Queen",
+      "beatsPerMinute": "81.00",
+      "songPack": "Queen"
     }
   ]
 }
