@@ -493,11 +493,8 @@ namespace BSDlcConverter
                 case "Rock Mixtape":
                     environmentName = "RockMixtapeEnvironment";
                     break;
-                case "Queen":
-                    environmentName = "RockMixtapeEnvironment";
-                    break;
                 default:
-                    environmentName = "FitBeatEnvironment";
+                    environmentName = "DefaultEnvironment";
                     break;
             }
             return environmentName;
