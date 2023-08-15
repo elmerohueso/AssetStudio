@@ -96,7 +96,7 @@ namespace BSDlcConverter
             statusMessage.Text = $"{dlcFiles.Count()} exported";
             statusMessage.Visible = true;
             await Task.Run(() => makeCustomSongs(progressMessage, progressAmount));
-            clearTemp();
+            //clearTemp();
             foreach (Control c in this.Controls.Cast<Control>().Where(c => c is Button || c is TextBox || c is Label))
                 c.Enabled = true;
             mainLog.Debug("Conversion finished");
@@ -201,6 +201,7 @@ namespace BSDlcConverter
             Assembly assembly = Assembly.GetExecutingAssembly();
             string assemblyPath = Path.GetDirectoryName(assembly.Location);
             string songPackDefinitionsPath = Path.Combine(assemblyPath, "SongPackDefinitions.json");
+            mainLog.Debug($"Reading Song Packs From {songPackDefinitionsPath}");
             SongPackDefinitions definitions = JsonConvert.DeserializeObject<SongPackDefinitions>(File.ReadAllText(songPackDefinitionsPath));
             return definitions;
         }
