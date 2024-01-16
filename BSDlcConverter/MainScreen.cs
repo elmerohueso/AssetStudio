@@ -1,17 +1,13 @@
 ﻿using BSDlcConverter.Models;
-using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
-using System.IO.Compression;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -25,6 +21,8 @@ namespace BSDlcConverter
         public static string spriteFolder;
         public static string audioClipFolder;
         public static string monoBehaviourFolder;
+
+        private static SongPackDefinitions songDefinitions = getSongPackDefinitions();
         public MainScreen()
         {
             mainLog.Debug("Starting up");
@@ -32,8 +30,9 @@ namespace BSDlcConverter
         }
         private void dlcFolderBrowse_Click(object sender, EventArgs e)
         {
-            if (folderBrowserDialog.ShowDialog() == DialogResult.OK) { }
-                dlcFolderBox.Text = folderBrowserDialog.SelectedPath;
+            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            { }
+            dlcFolderBox.Text = folderBrowserDialog.SelectedPath;
         }
         private void sharedAssetsBrowse_Click(object sender, EventArgs e)
         {
@@ -124,9 +123,8 @@ namespace BSDlcConverter
             DirectoryInfo spriteDirectoryInfo = new DirectoryInfo(spriteFolder);
             DirectoryInfo audioClipDirectoryInfo = new DirectoryInfo(audioClipFolder);
             DirectoryInfo monoBehaviourDirectoryInfo = new DirectoryInfo(monoBehaviourFolder);
-            SongPackDefinitions possibleDlc = getSongPackDefinitions();
             List<SongModel> availableDlc = new List<SongModel>();
-            foreach (Song dlcSong in possibleDlc.songs)
+            foreach (Song dlcSong in songDefinitions.songs)
             {
                 mainLog.Debug($"Looking for {dlcSong.internalName}");
                 SongModel song = new SongModel();
@@ -373,132 +371,23 @@ namespace BSDlcConverter
             else
                 mainLog.Debug($"{zipFile} should be complete");
         }
-        private static string getPlaylistCoverFromSongPack(SongModel song)
+        private static string getPlaylistCoverFromSongPack(SongModel song, string defaultValue = "BeatSaber")
         {
-            string playlistCover = "";
-            switch (song.songPack)
+            if (songDefinitions.songPacks.ContainsKey(song.songPack))
             {
-                case "Billie Eilish":
-                    playlistCover = "BillieEilish";
-                    break;
-                case "BTS":
-                    playlistCover = "BTS";
-                    break;
-                case "Electronic Mixtape":
-                    playlistCover = "EDM";
-                    break;
-                case "Fall Out Boy":
-                    playlistCover = "FallOutBoy";
-                    break;
-                case "Green Day":
-                    playlistCover = "GreenDay";
-                    break;
-                case "Imagine Dragons":
-                    playlistCover = "ImagineDragons";
-                    break;
-                case "Interscope Mixtape":
-                    playlistCover = "Interscope";
-                    break;
-                case "Lady Gaga":
-                    playlistCover = "LadyGaga";
-                    break;
-                case "Linkin Park":
-                    playlistCover = "LinkinPark";
-                    break;
-                case "Lizzo":
-                    playlistCover = "Lizzo";
-                    break;
-                case "Monstercat Vol. 1":
-                    playlistCover = "MonstercatVol1";
-                    break;
-                case "Monstercat X Rocket League":
-                    playlistCover = "RocketLeague";
-                    break;
-                case "Panic! at the Disco":
-                    playlistCover = "PanicAtTheDisco";
-                    break;
-                case "Skrillex":
-                    playlistCover = "Skrillex";
-                    break;
-                case "Timbaland":
-                    playlistCover = "Timbaland";
-                    break;
-                case "The Weeknd":
-                    playlistCover = "TheWeeknd";
-                    break;
-                case "Rock Mixtape":
-                    playlistCover = "RockMixtape";
-                    break;
-                case "Queen":
-                    playlistCover = "Queen";
-                    break;
-                default:
-                    playlistCover = "BeatSaber";
-                    break;
+                return songDefinitions.songPacks[song.songPack].cover ?? defaultValue;
             }
-            return playlistCover;
+
+            return defaultValue;
         }
-        private static string getEnvironmentFromSongPack(SongModel song)
+        private static string getEnvironmentFromSongPack(SongModel song, string defaultValue = "DefaultEnvironment")
         {
-            string environmentName = "";
-            switch (song.songPack)
+            if (songDefinitions.songPacks.ContainsKey(song.songPack))
             {
-                case "Billie Eilish":
-                    environmentName = "BillieEnvironment";
-                    break;
-                case "BTS":
-                    environmentName = "BTSEnvironment";
-                    break;
-                case "Electronic Mixtape":
-                    environmentName = "EDMEnvironment";
-                    break;
-                case "Fall Out Boy":
-                    environmentName = "PyroEnvironment";
-                    break;
-                case "Green Day":
-                    environmentName = "GreenDayEnvironment";
-                    break;
-                case "Imagine Dragons":
-                    environmentName = "DragonsEnvironment";
-                    break;
-                case "Interscope Mixtape":
-                    environmentName = "InterscopeEnvironment";
-                    break;
-                case "Lady Gaga":
-                    environmentName = "GagaEnvironment";
-                    break;
-                case "Linkin Park":
-                    environmentName = "LinkinParkEnvironment";
-                    break;
-                case "Lizzo":
-                    environmentName = "LizzoEnvironment";
-                    break;
-                case "Monstercat Vol. 1":
-                    environmentName = "MonstercatEnvironment";
-                    break;
-                case "Monstercat X Rocket League":
-                    environmentName = "RocketEnvironment";
-                    break;
-                case "Panic! at the Disco":
-                    environmentName = "PanicEnvironment";
-                    break;
-                case "Skrillex":
-                    environmentName = "SkrillexEnvironment";
-                    break;
-                case "Timbaland":
-                    environmentName = "TimbalandEnvironment";
-                    break;
-                case "The Weeknd":
-                    environmentName = "TheWeekndEnvironment";
-                    break;
-                case "Rock Mixtape":
-                    environmentName = "RockMixtapeEnvironment";
-                    break;
-                default:
-                    environmentName = "DefaultEnvironment";
-                    break;
+                return songDefinitions.songPacks[song.songPack].environment ?? defaultValue;
             }
-            return environmentName;
+
+            return defaultValue;
         }
     }
 }

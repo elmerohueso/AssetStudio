@@ -436,7 +436,7 @@
     {
       "internalName": "PartyRockAnthem",
       "songName": "Party Rock Anthem",
-      "songAuthorName": "LMFAO, Lauren Bennett, GoonRock",
+      "songAuthorName": "LMFAO, Lauren Bennett, GoonRock",
       "beatsPerMinute": "130",
       "songPack": "Interscope Mixtape"
     },
@@ -871,14 +871,14 @@
     {
       "internalName": "Butterflies",
       "songName": "Butterflies",
-      "songAuthorName": "Skrillex, Starrah, Four Tet",
+      "songAuthorName": "Skrillex, Starrah, Four Tet",
       "beatsPerMinute": "128",
       "songPack": "Skrillex"
     },
     {
       "internalName": "DontGo",
       "songName": "Don't Go",
-      "songAuthorName": "Skrillex, Justin Bieber, Don Toliver",
+      "songAuthorName": "Skrillex, Justin Bieber, Don Toliver",
       "beatsPerMinute": "150",
       "songPack": "Skrillex"
     },
@@ -892,7 +892,7 @@
     {
       "internalName": "RaggaBomb",
       "songName": "Ragga Bomb",
-      "songAuthorName": "Skrillex, Ragga Twins",
+      "songAuthorName": "Skrillex, Ragga Twins",
       "beatsPerMinute": "174",
       "songPack": "Skrillex"
     },
@@ -913,28 +913,28 @@
     {
       "internalName": "TheDevilsDen",
       "songName": "The Devil's Den",
-      "songAuthorName": "Skrillex, Wolfgang Gartner",
+      "songAuthorName": "Skrillex, Wolfgang Gartner",
       "beatsPerMinute": "128",
       "songPack": "Skrillex"
     },
     {
       "internalName": "DumbThingz",
       "songName": "Dumb Thingz",
-      "songAuthorName": "Kaydence, Timbaland",
+      "songAuthorName": "Kaydence, Timbaland",
       "beatsPerMinute": "100",
       "songPack": "Timbaland"
     },
     {
       "internalName": "Famous",
       "songName": "Famous",
-      "songAuthorName": "Bruno Martini, Timbaland, Jake Davis",
+      "songAuthorName": "Bruno Martini, Timbaland, Jake Davis",
       "beatsPerMinute": "119",
       "songPack": "Timbaland"
     },
     {
       "internalName": "HasAMeaning",
       "songName": "Has a Meaning",
-      "songAuthorName": "sid tipton, Timbaland",
+      "songAuthorName": "sid tipton, Timbaland",
       "beatsPerMinute": "121",
       "songPack": "Timbaland"
     },
@@ -1027,7 +1027,8 @@
     },
     {
       "internalName": "DieForYou",
-      "songName": "Die For You (Feat. Ariana Grande)",
+      "songName": "Die For You",
+      "songSubName": "feat. Ariana Grande",
       "songAuthorName": "The Weeknd",
       "beatsPerMinute": "133",
       "songPack": "The Weeknd"
@@ -1172,5 +1173,79 @@
       "beatsPerMinute": "81.00",
       "songPack": "Queen"
     }
-  ]
+  ],
+  "songPacks": {
+    "Monstercat Vol. 1": {
+      "cover": "MonstercatVol1",
+      "environment": "MonstercatEnvironment"
+    },
+    "Imagine Dragons": {
+      "cover": "ImagineDragons",
+      "environment": "DragonsEnvironment"
+    },
+    "Panic! at the Disco": {
+      "cover": "PanicAtTheDisco",
+      "environment": "PanicEnvironment"
+    },
+    "Monstercat X Rocket League": {
+      "cover": "RocketLeague",
+      "environment": "RocketEnvironment"
+    },
+    "Green Day": {
+      "cover": "GreenDay",
+      "environment": "GreenDayEnvironment"
+    },
+    "Timbaland": {
+      "cover": "Timbaland",
+      "environment": "TimbalandEnvironment"
+    },
+    "Linkin Park": {
+      "cover": "LinkinPark",
+      "environment": "LinkinParkEnvironment"
+    },
+    "BTS": {
+      "cover": "BTS",
+      "environment": "BTSEnvironment"
+    },
+    "Interscope Mixtape": {
+      "cover": "Interscope",
+      "environment": "InterscopeEnvironment"
+    },
+    "Skrillex": {
+      "cover": "Skrillex",
+      "environment": "SkrillexEnvironment"
+    },
+    "Billie Eilish": {
+      "cover": "BillieEilish",
+      "environment": "BillieEnvironment"
+    },
+    "Lady Gaga": {
+      "cover": "LadyGaga",
+      "environment": "GagaEnvironment"
+    },
+    "Fall Out Boy": {
+      "cover": "FallOutBoy",
+      "environment": "PyroEnvironment"
+    },
+    "Electronic Mixtape": {
+      "cover": "EDM",
+      "environment": "EDMEnvironment"
+    },
+    "Lizzo": {
+      "cover": "Lizzo",
+      "environment": "LizzoEnvironment"
+    },
+    "The Weeknd": {
+      "cover": "TheWeeknd",
+      "environment": "TheWeekndEnvironment"
+    },
+    "Rock Mixtape": {
+      "cover": "RockMixtape",
+      "environment": "RockMixtapeEnvironment"
+    },
+    "Queen": {
+      "cover": "Queen",
+      "environment": "QueenEnvironment"
+    }
+  }
 }
